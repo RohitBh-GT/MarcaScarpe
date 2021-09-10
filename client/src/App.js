@@ -1,9 +1,15 @@
 import React from 'react';
+import { Switch,Route,withRouter } from 'react-router-dom';
+import Auth from './pages/Auth/auth.jsx';
 
 const App = () =>{
     return (
-        <h1>Here is our Branded Shoes Website.</h1>
+        <>
+         <Switch>
+             <Route path="/signIn" component={Auth} /> 
+         </Switch>
+        </>
      );
 }
 
-export default App;
+export default withRouter(App);
