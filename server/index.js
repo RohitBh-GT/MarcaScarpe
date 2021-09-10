@@ -3,6 +3,7 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+import auth from './routes/auth.js';
 dotenv.config();
 
 const app = express();
@@ -10,6 +11,7 @@ const app = express();
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json({limit:'50mb',extended:true}));
 app.use(cors());
+app.use('/auth',auth);
 
 const PORT = 5000;
 
