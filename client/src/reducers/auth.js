@@ -1,7 +1,14 @@
-const auth = (users={authdata:null},action) => {
-    switch(action.payload){
-      case 'fetch':
-          return users;
+const auth = (users={authData:null},action) => {
+    switch(action.type){
+      case 'signup':
+        localStorage.setItem('user',JSON.stringify({...action?.payload})) 
+        return {...users,authData:action?.payload};   
+      case 'signin':  
+        localStorage.setItem("user",JSON.stringify({...action?.payload})) 
+        return {...users,authData:action?.payload}; 
+      case 'logout':
+          localStorage.clear();
+          return {...users,authData:null};  
       default:
           return users;    
     }     

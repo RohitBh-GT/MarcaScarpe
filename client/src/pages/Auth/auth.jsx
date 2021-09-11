@@ -1,9 +1,12 @@
 import React from 'react';
 import AuthBox from '../../components/authbox/authbox.jsx';
+import './auth.css';
 
-const Auth = () => {
+const Auth = ({type,setToken}) => {
     return (
-        <AuthBox />
+        <div className="auth_body">
+            <AuthBox type={type} setToken={setToken} />
+        </div>
     )
 }
 
