@@ -37,6 +37,12 @@ const useStyles = makeStyles((theme) => ({
     },
     error:{
       color:'#fe6b02'
+    },
+    Spinner:{
+      position:'absolute',
+      left:'48%',
+      top:'45%',
+      color:'#fe6b02'
     }
 }));
 

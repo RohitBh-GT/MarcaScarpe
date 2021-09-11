@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import { InputBase } from '@material-ui/core';
+import { InputBase,CircularProgress } from '@material-ui/core';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
@@ -14,6 +14,7 @@ import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import passwordValidator from 'password-validator';
 import { getToken } from '../../utils/common.js';
+import { Spinner } from 'react-bootstrap';
 
 const AuthBox = ({ type,setToken }) => {
   const classes = useStyles();
@@ -21,6 +22,7 @@ const AuthBox = ({ type,setToken }) => {
     firstName: '', lastName: '', emailId: '', phone: '', password: ''
   });
   const [error, setError] = useState('');
+  const [loading,setLoading] = useState(false);
   const dispatch = useDispatch();
   const history = useHistory();
   if(getToken()){
@@ -94,14 +96,17 @@ const AuthBox = ({ type,setToken }) => {
       return;
     }
     if (type === 'signup') {
+      setLoading(true);
       const res = dispatch(signUp(formData, history));
-      res.then((message) => setError('*'+message))
-         .catch((error) => setError('*'+error));
+      res.then((message) => {setError('*'+message); setLoading(false)})
+         .catch((error) => {setError('*'+error); setLoading(false)});
+         setLoading(true);
     }
     else {
+      setLoading(true);
       const res = dispatch(signIn(formData, history));
-      res.then((message) => setError('*'+message))
-          .catch((error) => setError('*'+error));
+      res.then((message) => {setError('*'+message); setLoading(false)})
+          .catch((error) => {setError('*'+error); setLoading(false)});
     }
   }
 
@@ -211,6 +216,7 @@ const AuthBox = ({ type,setToken }) => {
           </Grid>
         </div>
       </div>
+      {loading && <CircularProgress className={classes.Spinner} />}
     </Container>
   );
 }
