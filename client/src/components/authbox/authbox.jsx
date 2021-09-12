@@ -9,12 +9,13 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import useStyles from './styles.js';
-import { signUp, signIn } from '../../actions/auth.js';
+import { signUp, signIn, GoogleSignIn } from '../../actions/auth.js';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import passwordValidator from 'password-validator';
 import { getToken } from '../../utils/common.js';
-import { Spinner } from 'react-bootstrap';
+import { GoogleLogin } from 'react-google-login';
+import Icon from './icons.js';
 
 const AuthBox = ({ type,setToken }) => {
   const classes = useStyles();
@@ -88,7 +89,9 @@ const AuthBox = ({ type,setToken }) => {
     }
     if(!re.test(formData.emailId)){
       setError('*Email Id must contain @ and .com at end');
+      return 1;
     }
+    return 0;
   }
 
   const handleLogin = (event) => {
@@ -109,6 +112,18 @@ const AuthBox = ({ type,setToken }) => {
           .catch((error) => {setError('*'+error); setLoading(false)});
     }
   }
+
+  const googleSuccess = async(res) => {
+    setLoading(true);
+    const result = res?.profileObj;
+    const response = dispatch(GoogleSignIn(result, history));
+    response.then((message)=> {setError('*'+message); setLoading(false)})
+    .catch((err) => {setError('*'+err); setLoading(false)});
+  };
+
+  const googleFailure = () => {
+    setError("*Error during google sign in");
+  };
 
   return (
     <Container component="main" maxWidth="xs">
@@ -198,6 +213,22 @@ const AuthBox = ({ type,setToken }) => {
             </Grid>
           </Grid>
           <p className={classes.error}>{error}</p>
+          <GoogleLogin 
+            clientId="428464167569-9kvckkd3l7oe2pkq26ro8bcf3m0opivh.apps.googleusercontent.com"
+            render={(renderProps) => (
+              <Button
+                className={classes.google}
+                fullWidth
+                onClick={renderProps.onClick}
+                disabled={renderProps.disabled}
+                startIcon={<Icon />}
+                variant="contained"
+              >
+                Google Sign In
+              </Button>)}
+              onSuccess={googleSuccess}
+              onFailure={googleFailure}
+              cookiePolicy="single_host_origin" />
           <Button
             onClick={handleLogin}
             type="submit"
@@ -207,7 +238,12 @@ const AuthBox = ({ type,setToken }) => {
           >
             {type === 'signup' ? 'Sign Up' : 'Sign In'}
           </Button>
-          <Grid container justifyContent="flex-end">
+          <Grid className={classes.linkGrid} container> 
+          <Grid item>
+              {type === 'signin' && <Link className={classes.link} href="/auth/forgotPassword" variant="body2">
+                Forgot Password
+              </Link>} 
+            </Grid>
             <Grid item>
               {type === 'signup' ? <Link className={classes.link} href="/auth/signIn" variant="body2">
                 Already have an account? Sign in

@@ -19,11 +19,11 @@ const useStyles = makeStyles((theme) => ({
     },
     submit: {
       margin: theme.spacing(3, 0, 2),
-      backgroundColor:'#fe6b02',
+      backgroundColor:'#dc6007',
       color:'white',
       fontWeight:'700',
       '&:hover':{
-        backgroundColor:'#dc6007'
+        backgroundColor:'#fe6b02'
       }
     },
     InputBase:{
@@ -43,6 +43,18 @@ const useStyles = makeStyles((theme) => ({
       left:'48%',
       top:'45%',
       color:'#fe6b02'
+    },
+    google:{
+      backgroundColor:'#dc6007',
+      color:'white',
+      fontWeight:'700',
+      '&:hover':{
+        backgroundColor:'#fe6b02'
+      }
+    },
+    linkGrid:{
+      display:'flex',
+      justifyContent:'space-between'
     }
 }));
 

@@ -2,6 +2,7 @@ import React, {useState,useEffect} from 'react';
 import { Switch,Route,withRouter } from 'react-router-dom';
 import Auth from './pages/Auth/auth.jsx';
 import Home from './pages/Home/home.jsx';
+import OnlyEmail from './pages/OnlyEmail/onlyEmail.jsx';
 
 const App = () =>{
 
@@ -14,6 +15,7 @@ const App = () =>{
              <Route path="/auth/signUp">
                  <Auth type={'signup'} />    
              </Route> 
+             <Route path="/auth/forgotPassword" component={OnlyEmail} />
              <Route path="/" component={Home} />
          </Switch>
         </>
