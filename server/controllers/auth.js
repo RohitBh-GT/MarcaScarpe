@@ -84,22 +84,26 @@ export const forgotPassword = async(req,res) => {
         const existingId = await Auth.findOne({emailId});
         if(!existingId) return res.status(404).json({message:'Email you entered doesn\'t exists!'});
 
-        const transport = await nodemailer.createTransport({
-            host:process.env.MAIL_HOST,
-            port:process.env.MAIL_PORT,
+        let transport = nodemailer.createTransport({
+            host:'localhost',
+            port:587,
+            service:'gmail',
             auth:{
                 user:process.env.MAIL_USER,
                 pass:process.env.MAIL_PASS
+            },
+            tls: {
+                rejectUnauthorized: true
             }
         });
         await transport.sendMail({
-            from:"rohitbhalla53@gmail.com",
+            from:process.env.MAIL_USER,
             to:existingId.emailId,
             subject:"Password Reset - Marca Scarpe",
-            html:`Password Reset Link- xyz`
+            text:`Password Reset Link- Yahan aayega`
         });
         return res.status(200).json({message:"Link send to respective email ID"});
     } catch (error) {
-        return res.status(404).json({message:'Server Error'});
+        return res.status(404).json({message:error});
     }
 }

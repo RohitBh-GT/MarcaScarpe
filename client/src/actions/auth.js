@@ -35,8 +35,10 @@ export const GoogleSignIn = (user,history) => async(dispatch) => {
 export const forgotPass = (user,history) => async(dispatch) => {
     try {
         const {data} = await api.forgotPassword(user);
-        history.push('/auth/signIn');
-        return (data);
+        setTimeout(()=> {
+            history.push('/auth/signIn');
+        },[10000]);
+        return (data.message);
     } catch (error) {
         return (error.response.data.message);
     }

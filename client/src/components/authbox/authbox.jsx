@@ -211,7 +211,7 @@ const AuthBox = ({ type,setToken }) => {
           </Grid>
           <p className={classes.error}>{error}</p>
           <GoogleLogin 
-            clientId="428464167569-9kvckkd3l7oe2pkq26ro8bcf3m0opivh.apps.googleusercontent.com"
+            clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
             render={(renderProps) => (
               <Button
                 className={classes.google}
