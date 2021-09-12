@@ -2,20 +2,21 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
-      paddingTop:theme.spacing(4),
+      paddingTop:theme.spacing(3),
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
       color:'#fe6b02'
     },
-    avatar: {
+    logo: {
       margin: theme.spacing(1),
-      backgroundColor: theme.palette.secondary.main,
+      width:"30%",
+      height:"30%"
     },
     form: {
       width: '100%',
       color:'#fe6b02',
-      marginTop: theme.spacing(3),
+      marginTop: theme.spacing(2),
     },
     submit: {
       margin: theme.spacing(3, 0, 2),

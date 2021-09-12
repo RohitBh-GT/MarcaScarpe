@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
-import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { InputBase,CircularProgress } from '@material-ui/core';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import useStyles from './styles.js';
@@ -16,6 +14,7 @@ import passwordValidator from 'password-validator';
 import { getToken } from '../../utils/common.js';
 import { GoogleLogin } from 'react-google-login';
 import Icon from './icons.js';
+import logo from '../../assets/images/marcascarpe.png';
 
 const AuthBox = ({ type,setToken }) => {
   const classes = useStyles();
@@ -129,9 +128,7 @@ const AuthBox = ({ type,setToken }) => {
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
-        </Avatar>
+          <img className={classes.logo} src={logo} alt="Marca Scarpe" />
         <Typography component="h1" variant="h5">
           {type === 'signup' ? 'Sign Up' : 'Sign In'}
         </Typography>

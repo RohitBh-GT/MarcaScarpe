@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
-import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { InputBase, CircularProgress } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import useStyles from './styles.js';
@@ -12,6 +10,7 @@ import { forgotPass } from '../../actions/auth.js';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { getToken } from '../../utils/common.js';
+import logo from '../../assets/images/marcascarpe.png';
 
 const AuthBox = ({ type }) => {
   const classes = useStyles();
@@ -61,9 +60,7 @@ const AuthBox = ({ type }) => {
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
-        </Avatar>
+      <img className={classes.logo} src={logo} alt="Marca Scarpe" />
         <Typography component="h1" variant="h5">
           Email Verification
         </Typography>
