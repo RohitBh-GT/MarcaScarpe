@@ -6,3 +6,4 @@ export const signUpUser = (data) => axios.post(`${url}/auth/api/v1/signup`,data)
 export const signInUser = (data) => axios.post(`${url}/auth/api/v1/signin`,data); 
 export const googleSignIn = (data) => axios.post(`${url}/auth/api/v1/googleLogin`,data);
 export const forgotPassword = (data) => axios.post(`${url}/auth/api/v1/forgotPassword`,data);
+export const resetPassword = (data) => axios.put(`${url}/auth/api/v1/resetPassword`,data);

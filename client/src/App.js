@@ -3,6 +3,7 @@ import { Switch,Route,withRouter } from 'react-router-dom';
 import Auth from './pages/Auth/auth.jsx';
 import Home from './pages/Home/home.jsx';
 import OnlyEmail from './pages/OnlyEmail/onlyEmail.jsx';
+import NewPassword from './pages/NewPassword/newPassword.jsx';
 
 const App = () =>{
 
@@ -16,6 +17,7 @@ const App = () =>{
                  <Auth type={'signup'} />    
              </Route> 
              <Route path="/auth/forgotPassword" component={OnlyEmail} />
+             <Route path="/auth/resetPassword/:id/:token" component={NewPassword} />
              <Route path="/" component={Home} />
          </Switch>
         </>

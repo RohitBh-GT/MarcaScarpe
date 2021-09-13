@@ -43,3 +43,16 @@ export const forgotPass = (user,history) => async(dispatch) => {
         return (error.response.data.message);
     }
 }
+
+export const resetPass = (user,history) => async(dispatch) => {
+    try {
+        const userChanged = {id:user.id,token:user.token,password:user.password};
+        const {data} = await api.resetPassword(userChanged);
+        setTimeout(()=> {
+            history.push('/auth/signIn');
+        },[5000]);
+        return (data.message);
+    } catch (error) {
+        return (error.response.data.message);
+    }
+}
