@@ -9,7 +9,8 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: 'black',
         zIndex: '100',
         maxWidth: '100vw',
-        height: '80px'
+        height: '80px',
+        position:'sticky'
     },
     logoContainer: {
         maxWidth: '90px',

@@ -1,0 +1,11 @@
+.home_photo{
+    width:100%;
+    z-index: -1;
+    margin-bottom: -200px;
+    height:80vh;
+    mask-image: linear-gradient(to bottom, #565b77,transparent);
+}
+
+.card{
+    z-index:2;
+}

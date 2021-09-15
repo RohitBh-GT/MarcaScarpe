@@ -1,13 +1,68 @@
 import React from 'react';
 import Cover from '../../assets/images/coverPhoto.jpg';
 import useStyles from './styles.js';
+import { Card, CardContent, Typography, Grid } from '@material-ui/core';
+import './styles.css';
+import App from '../../assets/images/App.png';
 
 const CoverPhoto = () => {
     const classes = useStyles();
     return (
         <div className={classes.home}>
-            <div className={classes.home_photo}>
+            <div className="home_photo">
                 <img className={classes.image} src={Cover} alt="Shoes on Discount" />
+            </div>
+            <div className={classes.cardGrid}>
+                <Grid container spacing={3}>
+                    <Grid className="card" item xs={4} md={4}>
+                        <Card className={classes.root}>
+                            <CardContent>
+                                <Typography className={classes.heading} variant="h5" component="h2">
+                                    Hi Rohit
+                                </Typography>
+                                <Typography className={classes.title} color="textSecondary" gutterBottom>
+                                    Customer since 2021
+                                </Typography>
+                                <div className={classes.cardBody}>
+                                    <div className={classes.cardOption}>
+                                        <span className={classes.cardUpper}>Your Orders</span>
+                                        <span className={classes.cardDown}>32</span>
+                                    </div>
+                                    <div className={classes.cardOption}>
+                                        <span className={classes.cardUpper}>Your Wishlist</span>
+                                        <span className={classes.cardDown}>20</span>
+                                    </div>
+                                </div>
+                            </CardContent>
+                        </Card>
+                    </Grid>
+                    <Grid className="card" item xs={4} md={4}>
+                        <Card className={classes.root}>
+                            <CardContent>
+                                <Typography className={classes.heading} variant="h5" component="h2">
+                                    Hi Rohit
+                                </Typography>
+                                <Typography className={classes.title} color="textSecondary" gutterBottom>
+                                    Customer since 2021
+                                </Typography>
+                                <h3>Your Orders</h3>
+                                <h2>100</h2>
+                            </CardContent>
+                        </Card>
+                    </Grid>
+                    <Grid className="card" item xs={4} md={4}>
+                        <Card className={classes.root}>
+                            <CardContent>
+                                <Typography className={classes.heading} variant="h5" component="h2">
+                                    Download Marca Scarpe App
+                                </Typography>
+                                <div style={{textAlign:'center'}}>
+                                <img className={classes.downloadImg} src={App} alt="Google Play" />
+                                </div>
+                            </CardContent>
+                        </Card>
+                    </Grid>
+                </Grid>
             </div>
         </div>
     )

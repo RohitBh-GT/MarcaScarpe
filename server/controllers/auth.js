@@ -19,7 +19,7 @@ export const signup = async(req,res) => {
 
         const user = await Auth.create({firstName,lastName,emailId,password:hashedPassword,phone,timeStamp:new Date().toLocaleDateString()});
         const userName = firstName+lastName;
-        const result = {userName:userName,emailId,phone};
+        const result = {userName:userName,emailId,phone,timeStamp:new Date().toLocaleDateString()};
         const token = jwt.sign({emailId:user.emailId,phone:user.phone},process.env.SECRET_KEY,{expiresIn:'1h'});
         return res.status(201).json({result,token});
     } catch (error) {
@@ -40,7 +40,7 @@ export const signin = async(req,res) => {
         if(!confirmPassword) return res.status(409).json({message:'Invalid Credentials Entered'}); 
 
         const userName = existingId.firstName+existingId.lastName;
-        const result = {userName:userName,emailId,phone};
+        const result = {userName:userName,emailId,phone,timeStamp:new Date().toLocaleDateString()};
         const token = jwt.sign({emailId:existingId.emailId,phone:existingId.phone},process.env.SECRET_KEY,{expiresIn:'1h'});
         return res.status(201).json({result,token});
     } catch (error) {
@@ -59,7 +59,7 @@ export const GoogleLogin = async(req,res) => {
             const user = await Auth.create({firstName,lastName,emailId,password:hashedPassword,timeStamp:new Date().toLocaleDateString()});
             
             const userName = firstName + lastName;
-            const result = {userName:userName,emailId};
+            const result = {userName:userName,emailId,timeStamp:new Date().toLocaleDateString()};
             const token = jwt.sign({emailId:user.emailId},process.env.SECRET_KEY,{expiresIn:'1h'});
             return res.status(201).json({result,token});
         }
@@ -69,7 +69,7 @@ export const GoogleLogin = async(req,res) => {
             if(!confirmPassword) return res.status(409).json({message:'Invalid Credentials Entered'});
 
             const userName = existingId.firstName+existingId.lastName;
-            const result = {userName:userName,emailId};
+            const result = {userName:userName,emailId,timeStamp:new Date().toLocaleDateString()};
             const token = jwt.sign({emailId:existingId.emailId},process.env.SECRET_KEY,{expiresIn:'1h'});
             return res.status(201).json({result,token});
         }
