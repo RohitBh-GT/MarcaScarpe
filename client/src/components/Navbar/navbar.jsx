@@ -2,12 +2,11 @@ import React from 'react';
 import useStyles from './styles.js';
 import Logo from '../../assets/images/marcascarpe.png';
 import { Link } from '@material-ui/core';
-import { useHistory } from 'react-router-dom';
 import { Search,ShoppingBasket } from '@material-ui/icons';
 
 const Navbar = () => {
     const classes = useStyles();
-    const history = useHistory();
+
     return (
         <div className={classes.container}>
             <div className={classes.logoContainer}>

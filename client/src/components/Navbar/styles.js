@@ -5,12 +5,12 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         flex: '1',
         alignItems: 'center',
-        justifyContent: 'left',
         backgroundColor: 'black',
         zIndex: '100',
         maxWidth: '100vw',
         height: '80px',
-        position:'sticky'
+        position:'sticky',
+        top:'0'
     },
     logoContainer: {
         maxWidth: '90px',

@@ -6,7 +6,7 @@ const useStyles = makeStyles((theme) => ({
     },
     image:{
         width:'100%',
-        height:'80%'
+        height:'85%'
     },
     cardGrid:{
         margin:'0px 20px'
@@ -16,7 +16,8 @@ const useStyles = makeStyles((theme) => ({
     },
     root:{
         boxShadow: '4px 4px 6px #fe6b02',
-        height:'80%'
+        height:'80%',
+        backgroundImage:'url("https://www.transparenttextures.com/patterns/brushed-alum-dark.png")'
     },
     cardBody:{
         marginTop:'20px',
@@ -42,9 +43,18 @@ const useStyles = makeStyles((theme) => ({
         width:'60%',
         height:'60%',
         margin:'auto',
-        marginBottom:'16px'
+        marginBottom:'16px',
+        cursor:'pointer'
+    },
+    rewardsHead:{
+        display:'flex',
+        alignItems:'center',
+        fontWeight:'700'
+    },
+    rewardImg:{
+        width:'15%',
+        height:'15%'
     }
-
 }));
 
 export default useStyles;

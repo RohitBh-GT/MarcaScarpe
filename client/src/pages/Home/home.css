@@ -3,3 +3,7 @@
     background-color: #272c48;
     height:140vh;
 }
+
+.navbar{
+    position:sticky;
+}
