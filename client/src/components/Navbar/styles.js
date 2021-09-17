@@ -10,7 +10,8 @@ const useStyles = makeStyles((theme) => ({
         maxWidth: '100vw',
         height: '80px',
         position:'sticky',
-        top:'0'
+        top:'0',
+        fontFamily:'Helvetica'
     },
     logoContainer: {
         maxWidth: '90px',
