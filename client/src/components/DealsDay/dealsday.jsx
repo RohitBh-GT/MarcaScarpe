@@ -2,9 +2,9 @@ import React from 'react';
 import useStyles from './styles.js';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import Brand from './Brand/brand.jsx';
+import SingleDeal from './SingleDeal/singleDeal.jsx';
 
-const Brands = ({ brands }) => {
+const DealsDay = ({ deals }) => {
     const classes = useStyles();
     const responsive = {
         superLargeDesktop: {
@@ -26,8 +26,8 @@ const Brands = ({ brands }) => {
     };
 
     return (
-        <div className={classes.brands}>
-            <h2 className={classes.brandsHeading}>Top Brands</h2>
+        <div className={classes.deals}>
+            <h2 className={classes.dealsHeading}>Deals of the Day</h2>
             <Carousel
                 swipeable={true}
                 draggable={false}
@@ -39,13 +39,14 @@ const Brands = ({ brands }) => {
                 keyBoardControl={true}
                 transitionDuration={1500}
                 containerClass="carousel-container"
-                className={classes.brandCarousel} responsive={responsive}>
-                {brands.map((brand) => (
-                    <Brand key={brand.brandName} imgSrc={brand.brandImageSrc} name={brand.brandName} />
+                className={classes.dealsCarousel} responsive={responsive}>
+                {deals.map((deal) => (
+                    <SingleDeal key={deal.productName} imgSrc={deal.productImage} name={deal.productName} 
+                     price={deal.productPrice} discountPrice={deal.productDiscountPrice} />
                 ))}
             </Carousel>
         </div>
     );
 }
 
-export default Brands;
+export default DealsDay;

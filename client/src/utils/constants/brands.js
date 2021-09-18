@@ -5,7 +5,7 @@ import Puma from '../../assets/images/Puma.png';
 import HM from '../../assets/images/HM.png'
 import Reebok from '../../assets/images/Reebok.png';
 import Sketchers from '../../assets/images/Sketchers.png';
-import USPolo from '../../assets/images/USPolo.png';
+import HushPuppies from '../../assets/images/HushPuppies.png';
 
 const brands = [
     {
@@ -33,12 +33,12 @@ const brands = [
         brandImageSrc:Sketchers
     },
     {
-        brandName:'U.S Polo Assn.',
-        brandImageSrc:USPolo
-    },
-    {
         brandName:'Red Tape',
         brandImageSrc:RedTapes
+    },
+    {
+        brandName:'Hush Puppies',
+        brandImageSrc:HushPuppies
     }
 ]
 

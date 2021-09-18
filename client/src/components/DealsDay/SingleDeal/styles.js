@@ -1,7 +1,7 @@
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
-    brandCard:{
+    dealCard:{
         width:'20vw',
         textAlign:'center',
         padding:'5px',
@@ -11,11 +11,11 @@ const useStyles = makeStyles((theme) => ({
         backgroundImage:'url("https://www.transparenttextures.com/patterns/brushed-alum-dark.png")',
         cursor:'pointer'
     },
-    brandImg:{
-        marginTop:'30px',
+    dealImg:{
+        marginTop:'10px',
         height:'18vh'
     },
-    brandName:{
+    dealName:{
         color:'#fe6b02',
         fontWeight:'650'
     }
