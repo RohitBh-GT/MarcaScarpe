@@ -5,7 +5,7 @@ const useStyles = makeStyles((theme) => ({
         width:'20vw',
         textAlign:'center',
         padding:'5px',
-        height:'30vh',
+        height:'32vh',
         margin:'0px 2vw',
         background:'white',
         backgroundImage:'url("https://www.transparenttextures.com/patterns/brushed-alum-dark.png")',
@@ -18,6 +18,30 @@ const useStyles = makeStyles((theme) => ({
     dealName:{
         color:'#fe6b02',
         fontWeight:'650'
+    },
+    dealPrice:{
+        color:'grey',
+        fontSize:'1rem',
+        marginLeft:'5px',
+        textDecoration:'line-through'
+    },
+    dealDiscount:{
+        fontSize:'1rem',
+        marginLeft:'5px',
+        fontWeight:'650',
+        fontSize:'1.4rem'
+    },
+    dealOption:{
+        display:'flex',
+        flex:'1',
+        width:'100%',
+        justifyContent:'space-between',
+        marginTop:'5px'
+    },
+    seeMore:{
+        marginRight:'5px',
+        marginTop:'18px',
+        textDecoration:'none'
     }
 }));
 

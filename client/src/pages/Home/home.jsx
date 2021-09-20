@@ -16,33 +16,33 @@ const Home = () => {
 
     const deals = [{
         productName:'XYZxnscm',
-        productImage:'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/b574da1d-91af-424c-8778-11590785c861/blazer-mid-77-vintage-shoe-dNWPTj.png',
-        roductPrice:'Rs 1200',
-        productDiscountPrice:'Rs 999'
-    },{
-        productName:'XYZxnscm',
-        productImage:'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/b574da1d-91af-424c-8778-11590785c861/blazer-mid-77-vintage-shoe-dNWPTj.png',
+        productImage:'https://m.media-amazon.com/images/I/81RYy2zYD+S._AC_UL480_FMwebp_QL65_.jpg',
         productPrice:'Rs 1200',
         productDiscountPrice:'Rs 999'
     },{
         productName:'XYZxnscm',
-        productImage:'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/b574da1d-91af-424c-8778-11590785c861/blazer-mid-77-vintage-shoe-dNWPTj.png',
+        productImage:'https://m.media-amazon.com/images/I/81RYy2zYD+S._AC_UL480_FMwebp_QL65_.jpg',
         productPrice:'Rs 1200',
         productDiscountPrice:'Rs 999'
     },{
         productName:'XYZxnscm',
-        productImage:'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/b574da1d-91af-424c-8778-11590785c861/blazer-mid-77-vintage-shoe-dNWPTj.png',
+        productImage:'https://m.media-amazon.com/images/I/81RYy2zYD+S._AC_UL480_FMwebp_QL65_.jpg',
+        productPrice:'Rs 1200',
+        productDiscountPrice:'Rs 999'
+    },{
+        productName:'XYZxnscm',
+        productImage:'https://m.media-amazon.com/images/I/81RYy2zYD+S._AC_UL480_FMwebp_QL65_.jpg',
         productPrice:'Rs 1200',
         productDiscountPrice:'Rs 999'
     },
     {
         productName:'XYZxnscm',
-        productImage:'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/b574da1d-91af-424c-8778-11590785c861/blazer-mid-77-vintage-shoe-dNWPTj.png',
+        productImage:'https://m.media-amazon.com/images/I/81RYy2zYD+S._AC_UL480_FMwebp_QL65_.jpg',
         productPrice:'Rs 1200',
         productDiscountPrice:'Rs 999'
     },{
         productName:'XYZxnscm',
-        productImage:'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/b574da1d-91af-424c-8778-11590785c861/blazer-mid-77-vintage-shoe-dNWPTj.png',
+        productImage:'https://m.media-amazon.com/images/I/81RYy2zYD+S._AC_UL480_FMwebp_QL65_.jpg',
         productPrice:'Rs 1200',
         productDiscountPrice:'Rs 999'
     }];

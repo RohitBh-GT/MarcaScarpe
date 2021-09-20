@@ -9,7 +9,10 @@ const useStyles = makeStyles((theme) => ({
         margin:'0px 2vw',
         background:'white',
         backgroundImage:'url("https://www.transparenttextures.com/patterns/brushed-alum-dark.png")',
-        cursor:'pointer'
+        cursor:'pointer',
+        '&:hover':{
+            backgroundColor:'#eeeeee'
+        }
     },
     brandImg:{
         marginTop:'30px',
