@@ -6,6 +6,7 @@ import CoverPhoto from '../../components/CoverPhoto/coverPhoto.jsx';
 import Brands from '../../components/Brands/brands.jsx';
 import topbrands from '../../utils/constants/brands.js';
 import DealsDay from '../../components/DealsDay/dealsday.jsx';
+import GenderFootwear from '../../components/GenderFootwear/genderFootwear.jsx';
 import './home.css';
 
 const Home = () => {
@@ -46,6 +47,9 @@ const Home = () => {
         productPrice:'Rs 1200',
         productDiscountPrice:'Rs 999'
     }];
+    const men = deals;
+    const women = deals;
+    const kids = deals;
 
     return (
         <div className="home_body">
@@ -53,6 +57,9 @@ const Home = () => {
             <CoverPhoto />
             <Brands brands={topbrands} />
             <DealsDay deals={deals} />
+            <GenderFootwear gender="Men" products={men} />
+            <GenderFootwear gender="Women" products={women} />
+            <GenderFootwear gender="Kids" products={kids} />
         </div>
     )
 }

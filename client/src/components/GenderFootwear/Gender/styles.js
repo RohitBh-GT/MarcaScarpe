@@ -1,7 +1,7 @@
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
-    dealCard:{
+    genderCard:{
         width:'20vw',
         textAlign:'center',
         padding:'5px',
@@ -11,34 +11,28 @@ const useStyles = makeStyles((theme) => ({
         backgroundImage:'url("https://www.transparenttextures.com/patterns/brushed-alum-dark.png")',
         cursor:'pointer'
     },
-    dealImg:{
+    genderImg:{
         marginTop:'10px',
         height:'18vh'
     },
-    dealName:{
+    genderName:{
         color:'#fe6b02',
         fontWeight:'650'
     },
-    dealPrice:{
-        color:'grey',
-        fontSize:'1rem',
-        marginLeft:'5px',
-        textDecoration:'line-through',
-    },
-    dealDiscount:{
+    genderDiscount:{
         fontSize:'1rem',
         marginLeft:'5px',
         fontWeight:'650',
         fontSize:'1.4rem',
     },
-    dealOption:{
+    genderOption:{
         display:'flex',
         flex:'1',
         width:'100%',
         justifyContent:'space-between',
         alignItems:'center'
     },
-    seeMore:{
+    genderSeeMore:{
         textDecoration:'none',
         color:'#fe6b02',
         '&:hover':{
