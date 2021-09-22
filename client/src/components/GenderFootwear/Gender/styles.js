@@ -8,8 +8,8 @@ const useStyles = makeStyles((theme) => ({
         height:'32vh',
         margin:'0px 2vw',
         background:'white',
-        backgroundImage:'url("https://www.transparenttextures.com/patterns/brushed-alum-dark.png")',
-        cursor:'pointer'
+        // backgroundImage:'url("https://www.transparenttextures.com/patterns/brushed-alum-dark.png")',
+        cursor:'pointer',
     },
     genderImg:{
         marginTop:'10px',

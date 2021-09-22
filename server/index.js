@@ -4,6 +4,7 @@ import cors from 'cors';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import auth from './routes/auth.js';
+import shoes from './routes/shoes.js';
 dotenv.config();
 
 const app = express();
@@ -12,6 +13,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json({limit:'50mb',extended:true}));
 app.use(cors());
 app.use('/auth',auth);
+app.use('/brandshoes',shoes);
 
 const PORT = 5000;
 
