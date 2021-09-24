@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { getToken } from '../../utils/common.js';
 import { useHistory } from 'react-router-dom';
 import Navbar from '../../components/Navbar/navbar.jsx';
@@ -7,6 +7,8 @@ import Brands from '../../components/Brands/brands.jsx';
 import topbrands from '../../utils/constants/brands.js';
 import DealsDay from '../../components/DealsDay/dealsday.jsx';
 import GenderFootwear from '../../components/GenderFootwear/genderFootwear.jsx';
+import { useDispatch,useSelector } from 'react-redux';
+import { getAllShoes } from '../../actions/shoes.js';
 import './home.css';
 
 const Home = () => {
@@ -14,6 +16,15 @@ const Home = () => {
     if (getToken() === null) {
         history.push('/auth/signUp');
     }
+
+    const dispatch = useDispatch();
+
+    useEffect(()=> {
+        dispatch(getAllShoes());
+    },[dispatch]);
+
+    const allShoes = useSelector(state => state.shoes);
+    console.log(allShoes);
 
     const deals = [{
         productName:'XYZxnscm',

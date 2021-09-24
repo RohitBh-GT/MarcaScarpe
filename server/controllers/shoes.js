@@ -4,8 +4,8 @@ export const addProduct = (req, res) => {
     const product = req.body;
     const newShoes = new Shoes(product);
     newShoes.save(err => {
-        if(err)  return res.status(404).json({ message: 'Cant Add the product - ' + err});
-        else return res.status(200).json({ message: 'Product Added+ \n' + newShoes });
+        if(err)  return res.status(404).json({ message: 'Can\'t Add the product - ' + err});
+        else return res.status(200).json({ message: 'Product Added'});
     });
 }
 

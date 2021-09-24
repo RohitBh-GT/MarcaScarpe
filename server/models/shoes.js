@@ -35,7 +35,8 @@ const shoesSchema = new mongoose.Schema({
     productColors:[{
         colorName:String,
         colorPhoto:String
-    }]
+    }],
+    stock:Number
 });
 
 const shoes = mongoose.model('shoes',shoesSchema);
