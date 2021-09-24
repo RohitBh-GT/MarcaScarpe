@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect,useState } from 'react';
 import { getToken } from '../../utils/common.js';
 import { useHistory } from 'react-router-dom';
 import Navbar from '../../components/Navbar/navbar.jsx';
@@ -23,8 +23,16 @@ const Home = () => {
         dispatch(getAllShoes());
     },[dispatch]);
 
-    const allShoes = useSelector(state => state.shoes);
-    console.log(allShoes);
+    const allShoes = useSelector((state) => state.shoes);
+    const [men,setMen] = useState([]);
+    const [women,setWomen] = useState([]);
+    const [kids,setKids] = useState([]);
+
+    useEffect(()=> {
+        setMen(allShoes.filter((shoes)=> shoes.forGender === 'Men'));
+        setWomen(allShoes.filter((shoes)=> shoes.forGender === 'Women'));
+        setKids(allShoes.filter((shoes)=> shoes.forGender === 'Kids'));
+    },[allShoes]);
 
     const deals = [{
         productName:'XYZxnscm',
@@ -58,19 +66,19 @@ const Home = () => {
         productPrice:'Rs 1200',
         productDiscountPrice:'Rs 999'
     }];
-    const men = deals;
-    const women = deals;
-    const kids = deals;
 
     return (
         <div className="home_body">
             <Navbar />
             <CoverPhoto />
+            {allShoes.length === 0 ? <h1>Loading...</h1>:<>
             <Brands brands={topbrands} />
             <DealsDay deals={deals} />
-            <GenderFootwear gender="Men" products={men} />
-            <GenderFootwear gender="Women" products={women} />
-            <GenderFootwear gender="Kids" products={kids} />
+            <GenderFootwear gender="Men" shoes={men}/>
+            <GenderFootwear gender="Women" shoes={women}/>
+            <GenderFootwear gender="Kids" shoes={kids}/>
+            </>
+            }
         </div>
     )
 }

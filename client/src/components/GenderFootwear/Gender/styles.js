@@ -5,7 +5,7 @@ const useStyles = makeStyles((theme) => ({
         width:'20vw',
         textAlign:'center',
         padding:'5px',
-        height:'32vh',
+        height:'35vh',
         margin:'0px 2vw',
         background:'white',
         // backgroundImage:'url("https://www.transparenttextures.com/patterns/brushed-alum-dark.png")',
@@ -13,11 +13,14 @@ const useStyles = makeStyles((theme) => ({
     },
     genderImg:{
         marginTop:'10px',
-        height:'18vh'
+        height:'18vh',
+        marginBottom:'8px'
     },
     genderName:{
         color:'#fe6b02',
-        fontWeight:'650'
+        fontSize:'15px',
+        fontWeight:'650',
+        height:'8vh'
     },
     genderDiscount:{
         fontSize:'1rem',

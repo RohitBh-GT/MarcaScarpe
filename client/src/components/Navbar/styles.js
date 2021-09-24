@@ -6,7 +6,7 @@ const useStyles = makeStyles((theme) => ({
         flex: '1',
         alignItems: 'center',
         backgroundColor: 'black',
-        zIndex: '100',
+        zIndex: '10000',
         maxWidth: '100vw',
         height: '80px',
         position:'sticky',

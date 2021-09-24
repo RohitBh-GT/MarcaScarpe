@@ -4,7 +4,7 @@ import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import Gender from './Gender/gender.jsx';
 
-const GenderFootwear = ({ gender, products}) => {
+const GenderFootwear = ({ gender, shoes, products}) => {
     const classes = useStyles();
     const responsive = {
         superLargeDesktop: {
@@ -25,6 +25,8 @@ const GenderFootwear = ({ gender, products}) => {
         }
     };
 
+    console.log(shoes);
+
     return (
         <div className={classes.gender}>
             <h2 className={classes.genderHeading}>{gender} Footwears</h2>
@@ -40,9 +42,9 @@ const GenderFootwear = ({ gender, products}) => {
                 transitionDuration={1500}
                 containerClass="carousel-container"
                 className={classes.genderCarousel} responsive={responsive}>
-                {products.map((product) => (
-                    <Gender key={product.productName} imgSrc={product.productImage} name={product.productName} 
-                     discountPrice={product.productDiscountPrice} />
+                {shoes.map((shoe) => (
+                    <Gender key={shoe.productName} imgSrc={shoe.productImage} name={shoe.productName} 
+                     discountPrice={shoe.productDiscountPrice} />
                 ))}
             </Carousel>
         </div>
