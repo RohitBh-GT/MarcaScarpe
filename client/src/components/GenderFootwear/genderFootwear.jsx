@@ -25,7 +25,6 @@ const GenderFootwear = ({ gender, shoes, products}) => {
         }
     };
 
-    console.log(shoes);
 
     return (
         <div className={classes.gender}>

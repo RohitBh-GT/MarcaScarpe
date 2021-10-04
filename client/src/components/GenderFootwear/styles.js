@@ -9,8 +9,8 @@ const useStyles = makeStyles((theme) => ({
         fontFamily:'Helvetica'
     },
     genderCarousel:{
-        padding:'6vh 2vw',
-        padding:'0vh 4vw',
+        padding:'3vh 1vw',
+        marginRight:'0.5%'
     }
 }));
 
