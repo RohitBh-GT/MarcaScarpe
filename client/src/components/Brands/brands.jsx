@@ -37,7 +37,7 @@ const Brands = ({ brands }) => {
                 infinite={false}
                 autoPlaySpeed={1000}
                 keyBoardControl={true}
-                transitionDuration={1500}
+                transitionDuration={1000}
                 containerClass="carousel-container"
                 className={classes.brandCarousel} responsive={responsive}>
                 {brands.map((brand) => (

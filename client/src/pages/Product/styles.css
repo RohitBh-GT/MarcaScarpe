@@ -1,0 +1,25 @@
+.productCard{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.productPage{
+    background:url("https://www.transparenttextures.com/patterns/dark-wood.png");
+    background-color: #272c48;
+    height:100vh;
+}
+
+.productImage{
+    width:40%;
+    padding:5%;
+}
+
+.productInfo{
+    width:60%;
+    padding: 0% 2% 2% 2%;
+    background-color: white;
+    background-image:url("https://www.transparenttextures.com/patterns/brushed-alum-dark.png");
+    margin-right: 10%;
+    margin-top:5%;
+}
