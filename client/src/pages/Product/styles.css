@@ -109,7 +109,7 @@
 .alert{
     position:absolute;
     bottom:2px;
-    left:10px;
+    left:15px;
     color:white !important;
     background-color:rgb(95,33,32) !important;
 }
@@ -117,7 +117,7 @@
 .success{
     position:absolute;
     bottom:2px;
-    left:10px;
+    left:15px;
     color:black !important;
     background-color:rgb(134, 231, 125) !important;
 }

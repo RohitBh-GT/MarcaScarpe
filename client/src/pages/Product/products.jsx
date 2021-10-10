@@ -9,6 +9,7 @@ import './styles.css';
 import ReactSelect from '../../components/ReactSelect/reactSelect.jsx';
 import { Size } from '../../utils/constants/size.js';
 import { addToCart } from '../../utils/common.js';
+import ReviewDialog from '../../components/ReviewDialog/reviewDialog.jsx';
 
 const Product = () => {
     const location = useLocation();
@@ -17,7 +18,7 @@ const Product = () => {
     });
     const [ratingVal, setRatingVal] = useState(2);
     const [size, setSize] = useState('');
-    const [alert,setAlert] = useState(false);
+    const [sizeAlert,setSizeAlert] = useState(false);
     const [cartAlert,setCartAlert] = useState(false);
     const [successAdd,setSuccessAdd] = useState(false);
 
@@ -66,13 +67,13 @@ const Product = () => {
     const handleAddToCart = (e) => {
         e.preventDefault();
         if(size.trim() === ''){
-            setAlert(true);
+            setSizeAlert(true);
             setTimeout(()=> {
-                setAlert(false);
+                setSizeAlert(false);
             },[5000]);
         }
         else {
-            setAlert(false);
+            setSizeAlert(false);
             const cart = addToCart(productToAdd);
             if(cart === 0){
                 setCartAlert(true);
@@ -151,7 +152,8 @@ const Product = () => {
                     </div>
                 </div>)
             }
-            {alert && <Alert className='alert' severity="error">Item Cannot be added - Size not selected.</Alert>}
+            <ReviewDialog id={productId} name={productName} />  
+            {sizeAlert && <Alert className='alert' severity="error">Item Cannot be added - Size not selected.</Alert>}
             {cartAlert && <Alert className='alert' severity="error">Item is already added to cart.</Alert>}
             {successAdd && <Alert className='success' severity="success">Item successsfully added to cart.</Alert>}
         </div>
