@@ -1,0 +1,28 @@
+export const Size = [
+    {
+        value:0,
+        label:'3UK'
+    },
+    {
+        value:1,
+        label:'4UK'
+    },{
+        value:2,
+        label:'5UK'
+    },{
+        value:3,
+        label:'6UK'
+    },{
+        value:4,
+        label:'7UK'
+    },{
+        value:5,
+        label:'8UK'
+    },{
+        value:6,
+        label:'9UK'
+    },{
+        value:7,
+        label:'10UK'
+    }
+];
