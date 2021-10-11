@@ -38,11 +38,11 @@ const Product = () => {
     });
 
     const allShoes = useSelector((state) => state.shoes);
-    const [product, setProduct] = useState(allShoes.filter((shoe) => shoe._id === productId));
+    const [product, setProduct] = useState([]);
     const [productImg, setProductImg] = useState('');
 
     useEffect(() => {
-        setProduct(allShoes.filter((shoe) => shoe._id === productId))
+         setProduct(allShoes.filter((shoe) => shoe._id === productId))
     }, [allShoes]);
 
     useEffect(() => {
@@ -150,9 +150,20 @@ const Product = () => {
                             <button className='wishlistButton'>Add to Wishlist</button>
                         </div>
                     </div>
-                </div>)
-            }
+                </div>)}
+            
+            {product.length !== 0 && <div>
             <ReviewDialog id={productId} name={productName} />  
+            {product[0].productReviews.map((review)=> (
+                <div className='reviewsBox'>
+                    <span>{review.personName}</span>&nbsp;&nbsp;&nbsp;
+                    <span>{review.reviewDate}</span>
+                    <Rating className='ratingBar' name="read-only-rating" value={review.personRating} readOnly />
+                    <h4>{review.personReview}</h4>
+                </div>
+            ))}
+            </div>
+        }
             {sizeAlert && <Alert className='alert' severity="error">Item Cannot be added - Size not selected.</Alert>}
             {cartAlert && <Alert className='alert' severity="error">Item is already added to cart.</Alert>}
             {successAdd && <Alert className='success' severity="success">Item successsfully added to cart.</Alert>}

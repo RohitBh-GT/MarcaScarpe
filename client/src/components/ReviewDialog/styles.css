@@ -1,0 +1,12 @@
+.css-1t1j96h-MuiPaper-root-MuiDialog-paper{
+    background:url("https://www.transparenttextures.com/patterns/dark-wood.png");
+    background-color: #272c48 !important;
+}
+
+.success{
+    position:absolute;
+    bottom:2px;
+    left:15px;
+    color:black !important;
+    background-color:rgb(134, 231, 125) !important;
+}

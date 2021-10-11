@@ -1,5 +1,4 @@
 import * as React from 'react';
-import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
@@ -12,6 +11,8 @@ import useStyles from './style.js';
 import { getToken } from '../../utils/common.js';
 import { addReview } from '../../actions/shoes.js';
 import { useDispatch } from 'react-redux';
+import Alert from '@mui/material/Alert';
+import './styles.css';
 
 const ReviewDialog = ({ id,name }) => {
     const [open, setOpen] = React.useState(false);
@@ -21,6 +22,7 @@ const ReviewDialog = ({ id,name }) => {
     const [review,setReview] = React.useState('');
     const [error,setError] = React.useState('');
     const userName = getToken().result.userName;
+    const [reviewMsg,setReviewMsg] = React.useState(false);
     const dispatch = useDispatch();
 
     const handleClose = () => {
@@ -41,8 +43,16 @@ const ReviewDialog = ({ id,name }) => {
         }
         else{
             const productRev = {personName:userName,personReview:review,personRating:value,
-                reviewDate:new Date().toString()};
-            dispatch(addReview(id,productRev));    
+                reviewDate:new Date().toLocaleDateString()};
+            dispatch(addReview(id,productRev));  
+            setValue(0);
+            setReview('');
+            setError('');  
+            setOpen(false);
+            setReviewMsg(true);
+            setTimeout(()=> {
+                setReviewMsg(false);
+            },5000);
         }
     }
 
@@ -68,8 +78,9 @@ const ReviewDialog = ({ id,name }) => {
             <Dialog open={open} onClose={handleClose}>
                 <DialogTitle className={classes.dialogTitle} >Write Review for {name}</DialogTitle>
                 <DialogContent>
-                    <h4>Your point about this product:</h4>
+                    <h4 className={classes.contHead}>Your point about this product:</h4>
                     <TextareaAutosize
+                        className={classes.textArea}
                         aria-label="description"
                         minRows={4}
                         value={review}
@@ -77,8 +88,9 @@ const ReviewDialog = ({ id,name }) => {
                         placeholder="Your Description"
                         style={{ width: '80%' }}
                     />
-                    <h4>Rate this Product:</h4>
+                    <h4 className={classes.contHead}>Rate this Product:</h4>
                     <Rating
+                        style={{marginTop:'-10px',marginBottom:'6px'}}
                         name="product-feedback"
                         value={value}
                         precision={1}
@@ -88,15 +100,16 @@ const ReviewDialog = ({ id,name }) => {
                         onChangeActive={(event, newHover) => {
                             setHover(newHover);
                         }}
-                        emptyIcon={<Star style={{ opacity: 0.55 }} fontSize="inherit" />}
+                        emptyIcon={<Star style={{ color:'grey', opacity: 0.55 }} fontSize="inherit" />}
                     />
-                    <span>{error}</span>
+                    <div><span className={classes.errorReview}>{error}</span></div>
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={handleClose}>Cancel</Button>
-                    <Button onClick={publishReview}>Publish</Button>
+                    <button className={classes.reviewButton} onClick={handleClose}>Cancel</button>
+                    <button className={classes.reviewButton} onClick={publishReview}>Publish</button>
                 </DialogActions>
             </Dialog>
+            {reviewMsg && <Alert className='success' severity="success">Review Published Successfully.</Alert>}
         </div>
     );
 }

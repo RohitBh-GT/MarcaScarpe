@@ -121,3 +121,11 @@
     color:black !important;
     background-color:rgb(134, 231, 125) !important;
 }
+
+.reviewsBox{
+    margin:0% 5%;
+    padding:6px;
+    border:1px solid #fe6b02;
+    color:#fe6b02;
+    border-radius: 10px;
+}
