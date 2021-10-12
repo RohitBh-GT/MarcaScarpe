@@ -21,6 +21,7 @@ const Product = () => {
     const [sizeAlert,setSizeAlert] = useState(false);
     const [cartAlert,setCartAlert] = useState(false);
     const [successAdd,setSuccessAdd] = useState(false);
+    const [stockAlert,setStockAlert] = useState(false);
 
     const [productToAdd,setProductToAdd] = useState({
         _id:'',
@@ -72,6 +73,12 @@ const Product = () => {
                 setSizeAlert(false);
             },[5000]);
         }
+        else if(product[0].stock === 0){
+            setStockAlert(true);
+            setTimeout(()=> {
+                setStockAlert(false);
+            },[5000]);
+        }
         else {
             setSizeAlert(false);
             const cart = addToCart(productToAdd);
@@ -104,8 +111,10 @@ const Product = () => {
                             <span className='productBrand'>Brand: {product[0].productBrand} </span>
                             <span className='productGender'>For {product[0].forGender} </span>
                         </div>
-                        <Rating className='ratingBar' name="read-only-rating" value={ratingVal} readOnly />
-                        <hr style={{ backgroundColor: '#fe6b02' }} />
+                        <div><Rating className='ratingBar' name="read-only-rating" value={ratingVal} readOnly /></div>
+                        {product[0].stock>0 ? <span style={{color:'white',backgroundColor:'green',padding:'4px'}}>In Stock</span> 
+                        : <span style={{color:'white',backgroundColor:'red',padding:'4px'}}>Out of Stock</span>}
+                        <hr style={{ backgroundColor: '#fe6b02',marginTop:'12px' }} />
                         <span style={{ color: '#272c48', fontWeight: '600' }}>Price:</span> <span className='productDiscountPrice'>{product[0].productDiscountPrice}</span>
                         &nbsp;&nbsp;&nbsp;<span className='productPrice'>{product[0].productPrice}</span>
                         <h4>Size:
@@ -174,6 +183,7 @@ const Product = () => {
             {sizeAlert && <Alert className='alert' severity="error">Item Cannot be added - Size not selected.</Alert>}
             {cartAlert && <Alert className='alert' severity="error">Item is already added to cart.</Alert>}
             {successAdd && <Alert className='success' severity="success">Item successsfully added to cart.</Alert>}
+            {stockAlert && <Alert className='success' severity="error">Item is out of Stock.</Alert>}
         </div>
     )
 }

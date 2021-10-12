@@ -41,7 +41,7 @@ const DealsDay = ({ deals }) => {
                 containerClass="carousel-container"
                 className={classes.dealsCarousel} responsive={responsive}>
                 {deals.map((deal) => (
-                    <SingleDeal key={deal.productName} imgSrc={deal.productImage} name={deal.productName} 
+                    <SingleDeal key={deal.productName} productId={deal._id} imgSrc={deal.productImage} name={deal.productName} 
                      price={deal.productPrice} discountPrice={deal.productDiscountPrice} />
                 ))}
             </Carousel>

@@ -5,7 +5,7 @@ const useStyles = makeStyles((theme) => ({
         width:'20vw',
         textAlign:'center',
         padding:'5px',
-        height:'32vh',
+        height:'34vh',
         margin:'0px 2vw',
         background:'white',
         // backgroundImage:'url("https://www.transparenttextures.com/patterns/brushed-alum-dark.png")',
@@ -17,7 +17,9 @@ const useStyles = makeStyles((theme) => ({
     },
     dealName:{
         color:'#fe6b02',
-        fontWeight:'650'
+        fontWeight:'650',
+        fontSize:'15px',
+        height:'8vh'
     },
     dealPrice:{
         color:'grey',

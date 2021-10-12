@@ -10,7 +10,8 @@ const useStyles = makeStyles((theme) => ({
     },
     dealsCarousel:{
         margin:'6vh 2vw',
-        padding:'0vh 4vw',
+        padding:'0vh 1vw',
+        marginRight:'0.5%'
     }
 }));
 

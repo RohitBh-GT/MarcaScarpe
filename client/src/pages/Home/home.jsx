@@ -20,45 +20,16 @@ const Home = () => {
     const [men,setMen] = useState([]);
     const [women,setWomen] = useState([]);
     const [kids,setKids] = useState([]);
+    const [deals,setDeals] = useState([]);
 
     useEffect(()=> {
+        const today = new Date().getDate();
+        var ratio = Math.floor(today/3);
+        setDeals(allShoes.filter((shoes,index) => index%ratio === 0 ))
         setMen(allShoes.filter((shoes)=> shoes.forGender === 'Men'));
         setWomen(allShoes.filter((shoes)=> shoes.forGender === 'Women'));
         setKids(allShoes.filter((shoes)=> shoes.forGender === 'Kids'));
     },[allShoes]);
-
-    const deals = [{
-        productName:'XYZxnscm',
-        productImage:'https://m.media-amazon.com/images/I/51aymyMDz9L._UX695_.jpg',
-        productPrice:'Rs 1200',
-        productDiscountPrice:'Rs 999'
-    },{
-        productName:'XYZxnscm',
-        productImage:'https://m.media-amazon.com/images/I/81RYy2zYD+S._AC_UL480_FMwebp_QL65_.jpg',
-        productPrice:'Rs 1200',
-        productDiscountPrice:'Rs 999'
-    },{
-        productName:'XYZxnscm',
-        productImage:'https://m.media-amazon.com/images/I/81RYy2zYD+S._AC_UL480_FMwebp_QL65_.jpg',
-        productPrice:'Rs 1200',
-        productDiscountPrice:'Rs 999'
-    },{
-        productName:'XYZxnscm',
-        productImage:'https://m.media-amazon.com/images/I/81RYy2zYD+S._AC_UL480_FMwebp_QL65_.jpg',
-        productPrice:'Rs 1200',
-        productDiscountPrice:'Rs 999'
-    },
-    {
-        productName:'XYZxnscm',
-        productImage:'https://m.media-amazon.com/images/I/81RYy2zYD+S._AC_UL480_FMwebp_QL65_.jpg',
-        productPrice:'Rs 1200',
-        productDiscountPrice:'Rs 999'
-    },{
-        productName:'XYZxnscm',
-        productImage:'https://m.media-amazon.com/images/I/81RYy2zYD+S._AC_UL480_FMwebp_QL65_.jpg',
-        productPrice:'Rs 1200',
-        productDiscountPrice:'Rs 999'
-    }];
 
     return (
         <div className="home_body">
