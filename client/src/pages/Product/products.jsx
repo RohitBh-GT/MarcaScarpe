@@ -152,14 +152,21 @@ const Product = () => {
                     </div>
                 </div>)}
             
-            {product.length !== 0 && <div>
+            {product.length !== 0 && <div style={{paddingBottom:'1%'}}>
             <ReviewDialog id={productId} name={productName} />  
-            {product[0].productReviews.map((review)=> (
+            {product[0].productReviews.length === 0 ? <div className='reviewsBoxEmpty'>
+                <h2 style={{margin:'auto'}}>No review Here</h2>
+            </div> :
+            product[0].productReviews.map((review)=> (
                 <div className='reviewsBox'>
-                    <span>{review.personName}</span>&nbsp;&nbsp;&nbsp;
-                    <span>{review.reviewDate}</span>
-                    <Rating className='ratingBar' name="read-only-rating" value={review.personRating} readOnly />
-                    <h4>{review.personReview}</h4>
+                    <div>
+                    <span className='personName'>{review.personName}</span>&nbsp;&nbsp;&nbsp;
+                    <span className='reviewDate'>{review.reviewDate}</span>
+                    </div>
+                    <div>
+                    <Rating className='personRating' name="read-only-rating" value={review.personRating} readOnly />
+                    </div>
+                    <span className='personReview'>{review.personReview}</span>
                 </div>
             ))}
             </div>

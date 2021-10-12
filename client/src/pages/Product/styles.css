@@ -123,9 +123,33 @@
 }
 
 .reviewsBox{
-    margin:0% 5%;
+    margin:1% 5% 0% 5%;
     padding:6px;
     border:1px solid #fe6b02;
     color:#fe6b02;
     border-radius: 10px;
+}
+
+.reviewsBoxEmpty{
+    height:120px;
+    display:flex;
+    padding:6px;
+    border:1px solid #fe6b02;
+    color:#fe6b02;
+    border-radius: 10px;
+    margin:0% 5%;
+}
+
+.personName{
+    font-size: 1.5rem;
+    font-weight:540;
+}
+
+.personRating{
+    font-size:0.9rem;
+}
+
+.personReview{
+    margin-top:5px;
+    margin-left:4px;
 }
