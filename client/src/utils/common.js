@@ -19,3 +19,13 @@ export const addToCart = (product) => {
         }
     }
 }
+
+export const getCartLength = () => {
+    var cart = JSON.parse(sessionStorage.getItem('CartItem'));
+    if(!cart){
+        return 0; 
+    } 
+    else{
+        return cart.length;
+    }
+}

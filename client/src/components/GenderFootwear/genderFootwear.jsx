@@ -21,7 +21,7 @@ const GenderFootwear = ({ gender, shoes}) => {
         },
         mobile: {
             breakpoint: { max: 768, min: 0 },
-            items: 1
+            items: 2
         }
     };
 

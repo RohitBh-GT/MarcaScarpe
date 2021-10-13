@@ -1,0 +1,12 @@
+.brandCover{
+    width:100%;
+    z-index: -1;
+    margin-bottom: -200px;
+    height:70vh;
+    mask-image: linear-gradient(to bottom, #565b77,transparent);
+}
+
+.brandPage{
+    background:url("https://www.transparenttextures.com/patterns/dark-wood.png");
+    background-color: #272c48;
+}

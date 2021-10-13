@@ -2,7 +2,6 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
     brandCard:{
-        width:'20vw',
         textAlign:'center',
         padding:'5px',
         height:'30vh',

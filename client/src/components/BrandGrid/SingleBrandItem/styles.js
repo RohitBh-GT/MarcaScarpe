@@ -1,40 +1,39 @@
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
-    genderCard:{
+    brandItemCard:{
         textAlign:'center',
         padding:'5px',
         height:'35vh',
         margin:'0px 2vw',
         background:'white',
-        // backgroundImage:'url("https://www.transparenttextures.com/patterns/brushed-alum-dark.png")',
         cursor:'pointer',
     },
-    genderImg:{
+    brandItemImg:{
         marginTop:'10px',
         height:'18vh',
         marginBottom:'8px'
     },
-    genderName:{
+    brandItemName:{
         color:'#fe6b02',
         fontSize:'15px',
         fontWeight:'650',
         height:'8vh'
     },
-    genderDiscount:{
+    brandItemDiscount:{
         fontSize:'1rem',
         marginLeft:'5px',
         fontWeight:'650',
         fontSize:'1.4rem',
     },
-    genderOption:{
+    brandItemOption:{
         display:'flex',
         flex:'1',
         width:'100%',
         justifyContent:'space-between',
         alignItems:'center'
     },
-    genderSeeMore:{
+    brandItemSeeMore:{
         textDecoration:'none',
         color:'#fe6b02',
         '&:hover':{
