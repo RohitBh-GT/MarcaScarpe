@@ -1,0 +1,13 @@
+.cartBox{
+   width:100%;
+   display: flex;
+   align-items: center;
+}
+
+.cartItems{
+    width: 60%;
+}
+
+.billSide{
+    width:30%;
+}

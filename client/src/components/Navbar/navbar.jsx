@@ -49,7 +49,7 @@ const Navbar = () => {
                     <StyledBadge badgeContent={cartLength} color="secondary">
                     <span className={classes.upper}><ShoppingBasket /></span>
                     </StyledBadge>
-                    <Link className={classes.down} href="#"><span className={classes.down}>Cart</span></Link>
+                    <Link className={classes.down} href="/your-cart"><span className={classes.down}>Cart</span></Link>
                 </div>
             </div>
         </div>

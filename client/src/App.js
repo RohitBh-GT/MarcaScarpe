@@ -8,6 +8,7 @@ import Product from './pages/Product/products.jsx';
 import Brand from './pages/Brand/brand.jsx';
 import { useDispatch } from 'react-redux';
 import { getAllShoes } from './actions/shoes.js';
+import Cart from './pages/Cart/cart.jsx';
 
 const App = () =>{
 
@@ -30,6 +31,7 @@ const App = () =>{
              <Route path="/auth/resetPassword/:id/:token" component={NewPassword} />
              <Route path="/product" component={Product} />
              <Route path="/brand" component={Brand} />
+             <Route path="/your-cart" component={Cart} />
              <Route path="/" component={Home} />
          </Switch>
         </>
