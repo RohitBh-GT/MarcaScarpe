@@ -1,0 +1,21 @@
+.cartItemBox::-webkit-scrollbar {
+    width: 0.6em;
+  }
+   
+  .cartItemBox::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgb(219, 103, 25);
+  }
+   
+  .cartItemBox::-webkit-scrollbar-thumb {
+    background-color: #fe6b02;
+    outline: 1px solid white;
+  }
+
+  .cartItemBox{
+      height:87vh;
+      max-height: 87vh;
+      overflow: auto;
+      padding-bottom: 1%;
+      padding-top:1%;
+      padding:1%;
+  }

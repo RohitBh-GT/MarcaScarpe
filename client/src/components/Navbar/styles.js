@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: 'black',
         zIndex: '10000',
         maxWidth: '100vw',
-        height: '80px',
+        height: '12vh',
         position:'sticky',
         top:'0',
         fontFamily:'Helvetica'

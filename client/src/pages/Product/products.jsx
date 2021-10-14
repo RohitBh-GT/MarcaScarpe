@@ -35,7 +35,8 @@ const Product = () => {
         productPrice:'',
         productDiscountPrice:'',
         productRating:0,
-        stock:0
+        stock:0,
+        quantity:0
     });
 
     const allShoes = useSelector((state) => state.shoes);
@@ -61,7 +62,8 @@ const Product = () => {
             productPrice:product[0].productPrice,
             productDiscountPrice:product[0].productDiscountPrice,
             productRating:product[0].productRating,
-            stock:product[0].stock})
+            stock:product[0].stock,
+            quantity:1},)
         }
     }, [product]);
 

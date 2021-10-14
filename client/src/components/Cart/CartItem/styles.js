@@ -1,0 +1,74 @@
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme)=> ({
+    cartItemCard:{
+        display:'flex',
+        borderRadius:'8px',
+        backgroundColor:'white',
+        background:'url("https://www.transparenttextures.com/patterns/brushed-alum-dark.png")',
+        margin:'1%',
+        height:'20vh',
+        overflow:'hidden',
+        padding:'2%',
+        fontWeight:'bold',
+        fontSize:'1rem'
+    },
+    cartItemImage:{
+        width:'30%'
+    },
+    cartitemPRating:{
+        marginRight:'4%'
+    },
+    cartItemMiddle:{
+        width:'45%'
+    },
+    cartItemPName:{
+        color:'#fe6b02',
+        marginTop:'3px',
+    },
+    cartItemMidHead:{
+        display:'flex',
+        marginTop:'-14px',
+        justifyContent:'space-between',
+        alignItems:'center'
+    },
+    cartitemPSize:{
+        fontWeight:'bold',
+    },
+    cartitemPBrand:{
+        fontSize:'20px'
+    },
+    quantButton:{
+        backgroundColor:'#fe6b02',
+        border:'1px solid black',
+        color:'white',
+        width:'8%',
+        fontSize:'14px',
+        '&:hover':{
+            backgroundColor:'red'
+        }
+    },
+    cartitemButtons:{
+        display:'flex',
+        flexDirection:'column',
+        alignItems:'center',
+        justifyContent:'center',
+        marginTop:'2%',
+        marginLeft:'2%'
+    }, 
+    removeFromcart:{
+        padding:'8px',
+        backgroundColor:'#fe6b02',
+        color:'white',
+        fontWeight:'700',
+        borderRadius:'8px',
+        margin:'8px',
+        width:'12vw',
+        cursor:'pointer',
+        '&:hover':{
+            backgroundColor:'red'
+        }
+    }
+}));
+
+export default useStyles;

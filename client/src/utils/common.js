@@ -3,7 +3,7 @@ export const getToken = () => {
 }
 
 export const getCartProducts = () => {
-    var cart = JSON.parse(sessionStorage.getItem('CartItem'));
+    var cart = JSON.parse(localStorage.getItem('CartItem'));
     if(!cart){
         return [];
     }
@@ -13,45 +13,74 @@ export const getCartProducts = () => {
 }
 
 export const addToCart = (product) => {
-    var cart = JSON.parse(sessionStorage.getItem('CartItem'));
+    var cart = JSON.parse(localStorage.getItem('CartItem'));
     if (!cart) {
         var newCart = [product];
-        sessionStorage.setItem('CartItem', JSON.stringify(newCart));
+        localStorage.setItem('CartItem', JSON.stringify(newCart));
         return 1;
     }
     else {
-        const itemAlreadyExist = cart.find((c) => c._id === product._id);
-        if (itemAlreadyExist) {
-            if (itemAlreadyExist.size === product.size) {
-                if (itemAlreadyExist.productColor === product.productColor) {
-                    return 0;
-                }
-                else {
-                    cart.push(product);
-                    sessionStorage.setItem('CartItem', JSON.stringify(cart));
-                    return 1;
+        const itemAlreadyExist = cart.filter((c) => c._id === product._id);
+        if (itemAlreadyExist.length>0) {
+            var num=0;
+            for(var i=0;i<itemAlreadyExist.length;i++){
+                if (itemAlreadyExist[i].size === product.size) {
+                    if (itemAlreadyExist[i].productColor === product.productColor) {
+                        num++;
+                    }
                 }
             }
-            else if (itemAlreadyExist.size !== product.size) {
+            if(num!=0){
+                return 0;
+            }
+            else {
                 cart.push(product);
-                sessionStorage.setItem('CartItem', JSON.stringify(cart));
+                localStorage.setItem('CartItem', JSON.stringify(cart));
                 return 1;
             }
         }
         else {
             cart.push(product);
-            sessionStorage.setItem('CartItem', JSON.stringify(cart));
+            localStorage.setItem('CartItem', JSON.stringify(cart));
             return 1;
         }
     }
 }
 
 export const getCartLength = () => {
-    var cart = JSON.parse(sessionStorage.getItem('CartItem'));
+    var cart = JSON.parse(localStorage.getItem('CartItem'));
     if (!cart) {
         return 0;
     }
     else {
         return cart.length;
     }
+}
+
+export const setQuantityAndPrice = (productId,quant) => {
+    var cart = JSON.parse(localStorage.getItem('CartItem'));
+    cart = cart.map((item)=> {
+        if(item._id === productId){
+            item.quantity = quant;
+        }
+        return item;
+    });
+    localStorage.setItem('CartItem', JSON.stringify(cart)); 
+} 
+
+export const removeFromCart = (productId,productSize,productColor) => {
+    var cart = JSON.parse(localStorage.getItem('CartItem'));
+    cart = cart.filter((item)=> {
+        if(item._id === productId){
+         if(item.size === productSize){
+           if(item.productColor !== productColor)
+            return item;
+         }
+         else return item;   
+        }
+        else{
+            return item;
+        } 
+    });
+    localStorage.setItem('CartItem', JSON.stringify(cart)); 
 }
