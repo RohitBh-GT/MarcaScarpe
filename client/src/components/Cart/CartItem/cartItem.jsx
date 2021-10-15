@@ -9,11 +9,14 @@ const CartItem = (props) => {
     const [quant,setQuant] = useState(props.productQuantity);
     const history = useHistory();
     const url = `/product?productId=${props.productId}&productName=${props.productName}`
+    const [change,setChange] = useState(false);
 
     const increaseQuantity = (e) => {
         e.preventDefault();
         if(quant<props.stock){
-            setQuantityAndPrice(props.productId,quant+1);
+            localStorage.setItem('CartChanged',JSON.stringify(!change));
+            setChange(!change);
+            setQuantityAndPrice(props.productId,quant+1,props.productSize,props.productColor);
             setQuant(quant+1);
         }
     }
@@ -21,7 +24,9 @@ const CartItem = (props) => {
     const decreaseQuantity = (e) => {
         e.preventDefault();
         if(quant>1){
-            setQuantityAndPrice(props.productId,quant-1);
+            localStorage.setItem('CartChanged',JSON.stringify(!change));
+            setChange(!change);
+            setQuantityAndPrice(props.productId,quant-1,props.productSize,props.productColor);
             setQuant(quant-1);
         }
     }

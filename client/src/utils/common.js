@@ -57,10 +57,10 @@ export const getCartLength = () => {
     }
 }
 
-export const setQuantityAndPrice = (productId,quant) => {
+export const setQuantityAndPrice = (productId,quant,size,color) => {
     var cart = JSON.parse(localStorage.getItem('CartItem'));
     cart = cart.map((item)=> {
-        if(item._id === productId){
+        if(item._id === productId && item.size === size && item.productColor === color){
             item.quantity = quant;
         }
         return item;
@@ -83,4 +83,9 @@ export const removeFromCart = (productId,productSize,productColor) => {
         } 
     });
     localStorage.setItem('CartItem', JSON.stringify(cart)); 
+}
+
+export const getCartChanged = () => {
+    var changeVal = JSON.parse(localStorage.getItem('CartChanged'));
+    return changeVal;
 }
