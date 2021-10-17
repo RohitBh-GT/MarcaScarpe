@@ -28,7 +28,8 @@ const Bill = ({cartBox,setCartBox}) => {
                     <div style={{fontSize:'1.2rem'}}>Total price:</div> 
                     <div style={{fontSize:'1.2rem'}}>₹ {totalPrice}.00</div>
                 </div>
-                <button className='placeOrder'>Place My Order</button>
+                {cartBox.length > 0 ? <button className='placeOrder'>Place My Order</button>:
+                <button className='disabled'>Place My Order</button>}
             </div>
         </div>
     );

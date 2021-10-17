@@ -1,4 +1,3 @@
-import { ChangeHistoryOutlined } from '@material-ui/icons';
 import * as api from '../api/api.js';
 
 export const signUp = (user,history) => async(dispatch) => {

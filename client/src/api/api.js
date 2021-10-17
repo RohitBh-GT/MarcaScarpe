@@ -11,3 +11,5 @@ export const resetPassword = (data) => axios.put(`${url}/auth/api/v1/resetPasswo
 
 export const getAllShoes = () => axios.get(`${url}/brandshoes/api/v1/getProducts`);
 export const addReview = (id,review) => axios.put(`${url}/brandshoes/api/v1/addReview/${id}`,review);
+
+export const getMyProfile = (email) => axios.get(`${url}/profile/api/v1/getParticularProfile/${email}`);

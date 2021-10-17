@@ -17,6 +17,7 @@ const Home = () => {
     }
 
     const allShoes = useSelector((state) => state.shoes);
+    const myProfile = useSelector((state) => state.profile);
     const [men,setMen] = useState([]);
     const [women,setWomen] = useState([]);
     const [kids,setKids] = useState([]);
@@ -34,7 +35,7 @@ const Home = () => {
     return (
         <div className="home_body">
             <Navbar />
-            <CoverPhoto />
+            {myProfile.length > 0 && <CoverPhoto profile={myProfile[0]} />}
             {allShoes.length === 0 ? <h1>Loading...</h1>:<>
             <Brands brands={topbrands} />
             <DealsDay deals={deals} />

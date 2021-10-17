@@ -1,6 +1,7 @@
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import Auth from '../models/auth.js';
+import Profile from '../models/Profile.js';
 import dotenv from 'dotenv';
 import nodemailer from 'nodemailer';
 dotenv.config();
@@ -18,6 +19,8 @@ export const signup = async(req,res) => {
         const hashedPassword =  await bcrypt.hash(changedPassword,12);
 
         const user = await Auth.create({firstName,lastName,emailId,password:hashedPassword,phone,timeStamp:new Date().toLocaleDateString()});
+        const profile = await Profile.create({userName:`${firstName} ${lastName}`,emailId,phone,timeStamp:new Date().toLocaleDateString(),
+          address:'Not Added',rewardedCash:'0.0',giftVouchers:'0'});
         const userName = firstName+lastName;
         const result = {userName:userName,emailId,phone,timeStamp:new Date().toLocaleDateString()};
         const token = jwt.sign({emailId:user.emailId,phone:user.phone},process.env.SECRET_KEY,{expiresIn:'1h'});
@@ -57,7 +60,8 @@ export const GoogleLogin = async(req,res) => {
             const hashedPassword =  await bcrypt.hash(changedPassword,12);
 
             const user = await Auth.create({firstName,lastName,emailId,password:hashedPassword,timeStamp:new Date().toLocaleDateString()});
-            
+            const profile = await Profile.create({userName:`${firstName} ${lastName}`,emailId,phone:'Not Added',timeStamp:new Date().toLocaleDateString(),
+             address:'Not Added',rewardedCash:'0.0',giftVouchers:'0'});
             const userName = firstName + lastName;
             const result = {userName:userName,emailId,timeStamp:new Date().toLocaleDateString()};
             const token = jwt.sign({emailId:user.emailId},process.env.SECRET_KEY,{expiresIn:'1h'});

@@ -1,6 +1,5 @@
 import React,{ useState,useEffect } from 'react';
 import useStyles from './styles.js';
-import { getCartProducts} from '../../utils/common.js';
 import CartItem from './CartItem/cartItem.jsx';
 import Bag from '../../assets/images/bag.png'
 import './styles.css';

@@ -8,6 +8,8 @@ import Product from './pages/Product/products.jsx';
 import Brand from './pages/Brand/brand.jsx';
 import { useDispatch } from 'react-redux';
 import { getAllShoes } from './actions/shoes.js';
+import { getProfile } from './actions/profile.js';
+import { getToken } from './utils/common.js';
 import Cart from './pages/Cart/cart.jsx';
 
 const App = () =>{
@@ -16,6 +18,7 @@ const App = () =>{
 
     useEffect(()=> {
         dispatch(getAllShoes());
+        dispatch(getProfile(getToken().result.emailId));
     },[dispatch]);
 
     return (

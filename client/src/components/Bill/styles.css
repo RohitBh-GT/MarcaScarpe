@@ -34,6 +34,18 @@
     cursor:pointer;
 }
 
+.disabled{
+    padding:2%;
+    margin: 3% 4%;
+    color:white;
+    font-weight: 600;
+    font-size: 1.1rem;
+    background-color:#727272;
+    width: 90%;
+    border-radius: 10px;
+    border:none;
+}
+
 .placeOrder:hover{
     background-color: #e7af08;
 }

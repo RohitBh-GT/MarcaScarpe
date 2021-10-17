@@ -6,7 +6,7 @@ import './styles.css';
 import App from '../../assets/images/App.png';
 import Reward from '../../assets/images/reward.png';
 
-const CoverPhoto = () => {
+const CoverPhoto = ({profile}) => {
     const classes = useStyles();
     return (
         <div className={classes.home}>
@@ -19,19 +19,19 @@ const CoverPhoto = () => {
                         <Card className={classes.root}>
                             <CardContent>
                                 <Typography className={classes.heading} variant="h5" component="h2">
-                                    Hi Rohit
+                                    Hi {profile.userName}
                                 </Typography>
                                 <Typography className={classes.title} color="textSecondary" gutterBottom>
-                                    Customer since 2021
+                                    Customer since {profile.timeStamp}
                                 </Typography>
                                 <div className={classes.cardBody}>
                                     <div className={classes.cardOption}>
                                         <span className={classes.cardUpper}>Your Orders</span>
-                                        <span className={classes.cardDown}>32</span>
+                                        <span className={classes.cardDown}>{profile.orders.length}</span>
                                     </div>
                                     <div className={classes.cardOption}>
                                         <span className={classes.cardUpper}>Your Wishlist</span>
-                                        <span className={classes.cardDown}>20</span>
+                                        <span className={classes.cardDown}>{profile.wishlist.length}</span>
                                     </div>
                                 </div>
                             </CardContent>
@@ -46,11 +46,11 @@ const CoverPhoto = () => {
                                 <div className={classes.cardBody} style={{ marginTop: '32px' }}>
                                     <div className={classes.cardOption}>
                                         <span className={classes.cardUpper}>Cash Rewarded</span>
-                                        <span className={classes.cardDown}>Rs 0.0</span>
+                                        <span className={classes.cardDown}>Rs {profile.rewardedCash}</span>
                                     </div>
                                     <div className={classes.cardOption}>
                                         <span className={classes.cardUpper}>Gift Vouchers</span>
-                                        <span className={classes.cardDown}>5</span>
+                                        <span className={classes.cardDown}>{profile.giftVouchers}</span>
                                     </div>
                                 </div>
                             </CardContent>

@@ -13,21 +13,17 @@ const Cart = () => {
     }
     const [cartBox,setCartBox] = useState(getCartProducts());
 
-    useEffect(()=> {
-        console.log(cartBox);
-    },[cartBox]);
-
     return (
         <div className='cartPage'>
         <Navbar />
-        {cartBox.length > 0 && <div className='cartBox'>
+        <div className='cartBox'>
             <div className='cartItems'>
                 <CartItems cartBox={cartBox} setCartBox={setCartBox} />
             </div>
             <div className='billSide'>
                 <Bill cartBox={cartBox} setCartBox={setCartBox} />
             </div>
-        </div>}
+        </div>
         </div>
     )
 }
