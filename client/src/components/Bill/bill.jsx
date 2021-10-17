@@ -9,7 +9,7 @@ const Bill = () => {
     useEffect(()=> {
         console.log(getCartChanged());
         setItemsInCart(getCartProducts());
-    },[getCartLength()]);
+    },[getCartChanged()]);
 
     return (
         <div>
