@@ -5,16 +5,14 @@ import CartItem from './CartItem/cartItem.jsx';
 import Bag from '../../assets/images/bag.png'
 import './styles.css';
  
-const Cart = () => {
+const Cart = ({cartBox,setCartBox}) => {
     const classes = useStyles();
 
-    const [cartItems,setCartItems] = useState(getCartProducts());
-
     return (
-        <> <span className={classes.cartHead}>Items in Cart ({cartItems.length})</span>
+        <> <span className={classes.cartHead}>Items in Cart ({cartBox.length})</span>
         <div className='cartItemBox'>
-            {cartItems.length>0 ? cartItems.map((item,index)=> (
-                <CartItem key={index} productId={item._id} productImage={item.productImage} productName={item.productName} 
+            {cartBox.length>0 ? cartBox.map((item,index)=> (
+                <CartItem key={index} setCartBox={setCartBox} productId={item._id} productImage={item.productImage} productName={item.productName} 
                 productBrand={item.productBrand} productDiscountPrice={item.productDiscountPrice}
                 productRating={item.productRating} productSize={item.size} productColor={item.productColor}
                 productQuantity={item.quantity} stock={item.stock} />

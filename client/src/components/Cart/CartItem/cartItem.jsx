@@ -1,7 +1,7 @@
 import React,{ useState,useEffect } from 'react';
 import Rating from '@mui/material/Rating'
 import useStyles from './styles.js';
-import { setQuantityAndPrice,removeFromCart } from '../../../utils/common.js';
+import { setQuantityAndPrice,removeFromCart,getCartProducts } from '../../../utils/common.js';
 import { useHistory } from 'react-router-dom';
 
 const CartItem = (props) => {
@@ -18,6 +18,7 @@ const CartItem = (props) => {
             setChange(!change);
             setQuantityAndPrice(props.productId,quant+1,props.productSize,props.productColor);
             setQuant(quant+1);
+            props.setCartBox(getCartProducts())
         }
     }
 
@@ -28,6 +29,7 @@ const CartItem = (props) => {
             setChange(!change);
             setQuantityAndPrice(props.productId,quant-1,props.productSize,props.productColor);
             setQuant(quant-1);
+            props.setCartBox(getCartProducts())
         }
     }
 
@@ -39,7 +41,7 @@ const CartItem = (props) => {
     const removeFromcart = (e) => {
         e.preventDefault();
         removeFromCart(props.productId,props.productSize,props.productColor);
-        history.push('/your-cart');
+        props.setCartBox(getCartProducts())
     }
 
     return (

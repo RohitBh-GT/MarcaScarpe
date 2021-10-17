@@ -1,7 +1,7 @@
-import React from 'react';
+import React,{ useState,useEffect } from 'react';
 import Navbar from '../../components/Navbar/navbar.jsx';
 import CartItems from '../../components/Cart/cart.jsx'; 
-import { getToken } from '../../utils/common.js';
+import { getToken,getCartProducts } from '../../utils/common.js';
 import { useHistory } from 'react-router-dom';
 import Bill from '../../components/Bill/bill.jsx';
 import './styles.css';
@@ -11,18 +11,23 @@ const Cart = () => {
     if (getToken() === null) {
         history.push('/auth/signUp');
     }
+    const [cartBox,setCartBox] = useState(getCartProducts());
+
+    useEffect(()=> {
+        console.log(cartBox);
+    },[cartBox]);
 
     return (
         <div className='cartPage'>
         <Navbar />
-        <div className='cartBox'>
+        {cartBox.length > 0 && <div className='cartBox'>
             <div className='cartItems'>
-                <CartItems />
+                <CartItems cartBox={cartBox} setCartBox={setCartBox} />
             </div>
             <div className='billSide'>
-                <Bill />
+                <Bill cartBox={cartBox} setCartBox={setCartBox} />
             </div>
-        </div>
+        </div>}
         </div>
     )
 }
