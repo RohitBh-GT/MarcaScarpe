@@ -13,3 +13,5 @@ export const getAllShoes = () => axios.get(`${url}/brandshoes/api/v1/getProducts
 export const addReview = (id,review) => axios.put(`${url}/brandshoes/api/v1/addReview/${id}`,review);
 
 export const getMyProfile = (email) => axios.get(`${url}/profile/api/v1/getParticularProfile/${email}`);
+export const addWishlistItem = (email,wishListData) => axios.put(`${url}/profile/api/v1/updateWishlist/${email}`,wishListData);
+export const removeWishlistItem = (email,wishListData) => axios.put(`${url}/profile/api/v1/removeWishlistItem/${email}`,wishListData);

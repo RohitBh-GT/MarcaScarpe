@@ -3,11 +3,19 @@ import Cover from '../../assets/images/coverPhoto.jpg';
 import useStyles from './styles.js';
 import { Card, CardContent, Typography, Grid } from '@material-ui/core';
 import './styles.css';
+import { useHistory } from 'react-router-dom';
 import App from '../../assets/images/App.png';
 import Reward from '../../assets/images/reward.png';
 
 const CoverPhoto = ({profile}) => {
     const classes = useStyles();
+    const history = useHistory();
+
+    const openWishlist = (e) => {
+        e.preventDefault();
+        history.push('/your-wishlist');
+    }
+
     return (
         <div className={classes.home}>
             <div className="home_photo">
@@ -30,7 +38,7 @@ const CoverPhoto = ({profile}) => {
                                         <span className={classes.cardDown}>{profile.orders.length}</span>
                                     </div>
                                     <div className={classes.cardOption}>
-                                        <span className={classes.cardUpper}>Your Wishlist</span>
+                                        <span onClick={openWishlist} style={{'&:hover':{textDecoration:'underline',cursor:'pointer'}}} className={classes.cardUpperWish}>Your Wishlist</span>
                                         <span className={classes.cardDown}>{profile.wishlist.length}</span>
                                     </div>
                                 </div>

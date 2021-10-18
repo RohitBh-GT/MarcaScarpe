@@ -1,17 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import queryString from 'query-string';
 import { useLocation } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector,useDispatch } from 'react-redux';
 import Navbar from '../../components/Navbar/navbar.jsx';
 import Rating from '@mui/material/Rating';
 import Alert from '@mui/material/Alert';
 import './styles.css';
 import ReactSelect from '../../components/ReactSelect/reactSelect.jsx';
 import { Size } from '../../utils/constants/size.js';
-import { addToCart } from '../../utils/common.js';
+import { useHistory } from 'react-router-dom';
+import { addToCart, getToken } from '../../utils/common.js';
+import { updateWishList } from '../../actions/profile.js';
 import ReviewDialog from '../../components/ReviewDialog/reviewDialog.jsx';
 
 const Product = () => {
+    const history = useHistory();
+    if(getToken() === null){
+        history.push('/auth/signUp');
+    }
+
     const location = useLocation();
     const { productId, productName } = queryString.parse(location.search, {
         ignoreQueryPrefix: true
@@ -22,6 +29,9 @@ const Product = () => {
     const [cartAlert,setCartAlert] = useState(false);
     const [successAdd,setSuccessAdd] = useState(false);
     const [stockAlert,setStockAlert] = useState(false);
+    const [wishlistAlert,setWishlistAlert] = useState(false);
+    const [successAddWish,setWish] = useState(false);
+    const dispatch = useDispatch();
 
     const [productToAdd,setProductToAdd] = useState({
         _id:'',
@@ -40,6 +50,7 @@ const Product = () => {
     });
 
     const allShoes = useSelector((state) => state.shoes);
+    const myProfile = useSelector((state)=> state.profile);
     const [product, setProduct] = useState([]);
     const [productImg, setProductImg] = useState('');
 
@@ -73,13 +84,13 @@ const Product = () => {
             setSizeAlert(true);
             setTimeout(()=> {
                 setSizeAlert(false);
-            },[5000]);
+            },[3000]);
         }
         else if(product[0].stock === 0){
             setStockAlert(true);
             setTimeout(()=> {
                 setStockAlert(false);
-            },[5000]);
+            },[3000]);
         }
         else {
             setSizeAlert(false);
@@ -88,13 +99,50 @@ const Product = () => {
                 setCartAlert(true);
                 setTimeout(()=> {
                     setCartAlert(false);
-                },[5000]);
+                },[3000]);
             }
             else{
                 setSuccessAdd(true);
                 setTimeout(()=> {
                     setSuccessAdd(false);
-                },[5000]);
+                },[3000]);
+            }
+        }
+    }
+
+    const handleAddToWishlist = (e) => {
+        e.preventDefault();
+        if(size.trim() === ''){
+            setSizeAlert(true);
+            setTimeout(()=> {
+                setSizeAlert(false);
+            },[3000]);
+        }
+        else if(product[0].stock === 0){
+            setStockAlert(true);
+            setTimeout(()=> {
+                setStockAlert(false);
+            },[3000]);
+        }
+        else {
+            setSizeAlert(false);
+            if(!getToken()){
+                
+            }
+            else{
+                if(myProfile[0].wishlist.find((item) => item.productName === product[0].productName)){
+                    setWishlistAlert(true);
+                    setTimeout(()=> {
+                        setWishlistAlert(false);
+                    },[3000]);
+                }
+                else {
+                    dispatch(updateWishList({email:getToken().result.emailId,wishListItem:product[0]}));
+                    setWish(true)
+                    setTimeout(()=> {
+                        setWish(false);
+                    },[3000]);
+                }
             }
         }
     }
@@ -158,7 +206,7 @@ const Product = () => {
                         </div>
                         <div className='buttons'>
                             <button onClick={handleAddToCart} className='cartButton'>Add to Cart</button>
-                            <button className='wishlistButton'>Add to Wishlist</button>
+                            <button onClick={handleAddToWishlist} className='wishlistButton'>Add to Wishlist</button>
                         </div>
                     </div>
                 </div>)}
@@ -186,6 +234,8 @@ const Product = () => {
             {cartAlert && <Alert className='alert' severity="error">Item is already added to cart.</Alert>}
             {successAdd && <Alert className='success' severity="success">Item successsfully added to cart.</Alert>}
             {stockAlert && <Alert className='success' severity="error">Item is out of Stock.</Alert>}
+            {wishlistAlert && <Alert className='alert' severity="error">Product Already added to wishlist.</Alert>}
+            {successAddWish && <Alert className='success' severity="success">Item successsfully added to wishlist.</Alert>}
         </div>
     )
 }

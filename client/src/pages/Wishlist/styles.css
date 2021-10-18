@@ -1,0 +1,10 @@
+.wishListPage{
+    background:url("https://www.transparenttextures.com/patterns/dark-wood.png");
+    background-color: #272c48;
+    min-height: 100vh;
+}
+
+.wishListHead{
+    margin:2% 2% 1% 2%;
+    color:hsl(25, 99%, 50%);
+}

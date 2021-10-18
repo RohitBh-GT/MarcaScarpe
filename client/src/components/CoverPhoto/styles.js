@@ -31,6 +31,11 @@ const useStyles = makeStyles((theme) => ({
         alignItems:'center',
         flexDirection:'column'
     },
+    cardUpperWish:{
+        fontSize:'1.2rem',
+        fontWeight:'550',
+        '&:hover':{textDecoration:'underline',cursor:'pointer'}
+    },
     cardDown:{
         fontSize:'1.8rem',
         fontWeight:'750'

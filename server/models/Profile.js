@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import {shoesSchema} from './shoes.js';
+import { shoesSchema } from './shoes.js';
 
 const profileSchema = new mongoose.Schema({
     userName: {

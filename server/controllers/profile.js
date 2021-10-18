@@ -11,3 +11,33 @@ export const getProfile = async(req,res) => {
         return res.status(404).json({message:'Server Problem.Try again.'});
     }
 }
+
+export const updateWishlist = async(req,res) => {
+    const { email } = req.params;
+    const wishData = req.body;
+    try {
+        const existingProfile = await Profile.findOne({emailId:email});
+        console.log(existingProfile);
+        if(!existingProfile) return res.status(404).json({message:'Profile does not exists.'});
+
+        await Profile.findByIdAndUpdate(existingProfile._id,{$push:{wishlist:wishData}});
+        return res.status(200).json(wishData);
+    } catch (error) {
+        return res.status(404).json({message:'Wishlist can\'t be update at this time.'});
+    }
+}
+
+export const deleteWishlistItem = async(req,res) => {
+    const { email } = req.params;
+    const wishData = req.body;
+    try {
+        const existingProfile = await Profile.findOne({emailId:email});
+        console.log(existingProfile);
+        if(!existingProfile) return res.status(404).json({message:'Profile does not exists.'});
+
+        await Profile.findByIdAndUpdate(existingProfile._id,{$pull:{wishlist:wishData}});
+        return res.status(200).json(wishData);
+    } catch (error) {
+        return res.status(404).json({message:'Wishlist can\'t be update at this time.'});
+    }
+}
