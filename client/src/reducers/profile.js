@@ -9,6 +9,10 @@ const profile = (myProfile=[],action) => {
         case 'REMOVE_WISH':
             var oldProf = myProfile[0];
             oldProf.wishlist.filter((wish) => wish.productName !== action.payload.productName);
+            return [oldProf];  
+        case 'ADD_ORDERS':
+            var oldProf = myProfile[0];
+            oldProf.orders.push(action.payload);  
             return [oldProf];       
         default:
             return myProfile;    

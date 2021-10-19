@@ -16,6 +16,11 @@ const CoverPhoto = ({profile}) => {
         history.push('/your-wishlist');
     }
 
+    const openOrders = (e) => {
+        e.preventDefault();
+        history.push('/your-orders');
+    }
+
     return (
         <div className={classes.home}>
             <div className="home_photo">
@@ -34,11 +39,11 @@ const CoverPhoto = ({profile}) => {
                                 </Typography>
                                 <div className={classes.cardBody}>
                                     <div className={classes.cardOption}>
-                                        <span className={classes.cardUpper}>Your Orders</span>
+                                        <span onClick={openOrders} className={classes.cardUpperWish}>Your Orders</span>
                                         <span className={classes.cardDown}>{profile.orders.length}</span>
                                     </div>
                                     <div className={classes.cardOption}>
-                                        <span onClick={openWishlist} style={{'&:hover':{textDecoration:'underline',cursor:'pointer'}}} className={classes.cardUpperWish}>Your Wishlist</span>
+                                        <span onClick={openWishlist} className={classes.cardUpperWish}>Your Wishlist</span>
                                         <span className={classes.cardDown}>{profile.wishlist.length}</span>
                                     </div>
                                 </div>

@@ -175,8 +175,10 @@ const Product = () => {
                                 backgroundColor='#e9e9e9'
                                 options={Size}
                                 onChange={(e) => {
+                                    if(e){
                                     setSize(e.label);
                                     productToAdd.size = e.label;
+                                    }
                                 }}
                                 textColor='black'
                             /></h4>

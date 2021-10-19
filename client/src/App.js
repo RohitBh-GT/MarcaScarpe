@@ -7,6 +7,7 @@ import NewPassword from './pages/NewPassword/newPassword.jsx';
 import Product from './pages/Product/products.jsx';
 import Brand from './pages/Brand/brand.jsx';
 import WishList from './pages/Wishlist/wishlist.jsx';
+import Orders from './pages/Order/order.jsx';
 import { useDispatch } from 'react-redux';
 import { getAllShoes } from './actions/shoes.js';
 import { getProfile } from './actions/profile.js';
@@ -38,6 +39,7 @@ const App = () =>{
              <Route path="/brand" component={Brand} />
              <Route path="/your-cart" component={Cart} />
              <Route path="/your-wishlist" component={WishList} />
+             <Route path="/your-orders" component={Orders} />
              <Route path="/" component={Home} />
          </Switch>
         </>

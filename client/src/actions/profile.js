@@ -20,10 +20,17 @@ export const updateWishList = (obj) => async(dispatch) => {
 
 export const removeWishItem = (obj) => async(dispatch) => {
     try {
-        console.log(obj);
         const {data} = await api.removeWishlistItem(obj.email,obj.wishListItem);
-        console.log(data);
         dispatch({type:'REMOVE_WISH',payload:data});
+    } catch (error) {
+        return (error.response.data.message);
+    }
+}
+
+export const addOrders = (obj) => async(dispatch) => {
+    try {
+        const {data} = await api.addOrders(obj.email,obj.order);
+        dispatch({type:'ADD_ORDERS',payload:data});
     } catch (error) {
         return (error.response.data.message);
     }

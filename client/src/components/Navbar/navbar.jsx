@@ -4,6 +4,7 @@ import Logo from '../../assets/images/marcascarpe.png';
 import { Link } from '@material-ui/core';
 import { Search, ShoppingBasket } from '@material-ui/icons';
 import Badge from '@mui/material/Badge';
+import { useHistory } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
 import { getCartLength } from '../../utils/common.js';
 
@@ -20,8 +21,14 @@ const Navbar = () => {
             fontWeight:'700'
         },
     }));
+    const history = useHistory();
 
     const [cartLength,setCartLength] = useState(0);
+
+    const openCart = (e) => {
+        e.preventDefault();
+        history.push('/your-cart');
+    }
 
     useEffect(()=> {
         setCartLength(getCartLength());
@@ -43,11 +50,11 @@ const Navbar = () => {
                 </div>
                 <div className={classes.option}>
                     <span className={classes.upper}>Your</span>
-                    <Link className={classes.down} href="#"><span className={classes.down}>Orders</span></Link>
+                    <Link className={classes.down} href="/your-orders"><span className={classes.down}>Orders</span></Link>
                 </div>
                 <div className={classes.option}>
                     <StyledBadge badgeContent={cartLength} color="secondary">
-                    <span className={classes.upper}><ShoppingBasket /></span>
+                    <span onClick={openCart} className={classes.upper}><ShoppingBasket /></span>
                     </StyledBadge>
                     <Link className={classes.down} href="/your-cart"><span className={classes.down}>Cart</span></Link>
                 </div>

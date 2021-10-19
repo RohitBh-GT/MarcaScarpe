@@ -1,9 +1,12 @@
 import React,{ useState,useEffect } from 'react';
-import { getCartProducts,getCartChanged,getCartLength } from '../../utils/common.js';
+import { useDispatch } from 'react-redux';
+import { addOrders } from '../../actions/profile.js';
+import { getToken,getCartProducts } from '../../utils/common.js';
 import './styles.css';
 
 const Bill = ({cartBox,setCartBox}) => {
     const [totalPrice,setTotalPrice] = useState(0);
+    const dispatch = useDispatch();
 
     useEffect(()=> {
         var total = 0;
@@ -13,6 +16,11 @@ const Bill = ({cartBox,setCartBox}) => {
         }
         setTotalPrice(total);
     },[cartBox]);
+
+    const placeOrder = (e) => {
+        e.preventDefault();
+        dispatch(addOrders({email:getToken().result.emailId,order:{products:getCartProducts(),totalPrice:`Rs ${totalPrice}`}}));
+    }
 
     return (
         <div className='billBox'>
@@ -28,7 +36,7 @@ const Bill = ({cartBox,setCartBox}) => {
                     <div style={{fontSize:'1.2rem'}}>Total price:</div> 
                     <div style={{fontSize:'1.2rem'}}>₹ {totalPrice}.00</div>
                 </div>
-                {cartBox.length > 0 ? <button className='placeOrder'>Place My Order</button>:
+                {cartBox.length > 0 ? <button onClick={placeOrder} className='placeOrder'>Place My Order</button>:
                 <button className='disabled'>Place My Order</button>}
             </div>
         </div>

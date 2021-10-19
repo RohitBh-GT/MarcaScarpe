@@ -50,6 +50,6 @@ export const addOrders = async(req,res) => {
         await Profile.findByIdAndUpdate(existingProfile._id,{$push:{orders:orderData}});
         return res.status(200).json(orderData);
     } catch (error) {
-        return res.status(404).json({message:'Wishlist can\'t be update at this time.'});
+        return res.status(404).json({message:'Cant add any order'});
     }
 }
