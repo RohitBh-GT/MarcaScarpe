@@ -1,5 +1,5 @@
 import express from 'express';
-import { getProfile,updateWishlist,deleteWishlistItem } from '../controllers/profile.js';
+import { getProfile,updateWishlist,deleteWishlistItem,addOrders } from '../controllers/profile.js';
 const router = express.Router();
 
 router.get('/api/v1/getParticularProfile/:email',getProfile);
