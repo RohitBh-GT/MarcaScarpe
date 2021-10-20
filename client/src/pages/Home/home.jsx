@@ -3,11 +3,12 @@ import { getToken } from '../../utils/common.js';
 import { useHistory } from 'react-router-dom';
 import Navbar from '../../components/Navbar/navbar.jsx';
 import CoverPhoto from '../../components/CoverPhoto/coverPhoto.jsx';
+import { getProfile } from '../../actions/profile.js';
 import Brands from '../../components/Brands/brands.jsx';
 import topbrands from '../../utils/constants/brands.js';
 import DealsDay from '../../components/DealsDay/dealsday.jsx';
 import GenderFootwear from '../../components/GenderFootwear/genderFootwear.jsx';
-import { useSelector } from 'react-redux';
+import { useSelector,useDispatch } from 'react-redux';
 import './home.css';
 
 const Home = () => {
@@ -15,6 +16,12 @@ const Home = () => {
     if (getToken() === null) {
         history.push('/auth/signUp');
     }
+    const dispatch = useDispatch();
+
+    useEffect(()=> {
+        if(getToken())
+          dispatch(getProfile(getToken()));
+    },[dispatch]);
 
     const allShoes = useSelector((state) => state.shoes);
     const myProfile = useSelector((state) => state.profile);
