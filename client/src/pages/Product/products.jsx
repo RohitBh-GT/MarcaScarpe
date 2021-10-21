@@ -214,7 +214,7 @@ const Product = () => {
                 </div>)}
             
             {product.length !== 0 && <div style={{paddingBottom:'1%'}}>
-            <ReviewDialog id={productId} name={productName} />  
+            <ReviewDialog id={productId} name={productName} page='Product' />  
             {product[0].productReviews.length === 0 ? <div className='reviewsBoxEmpty'>
                 <h2 style={{margin:'auto'}}>No review Here</h2>
             </div> :

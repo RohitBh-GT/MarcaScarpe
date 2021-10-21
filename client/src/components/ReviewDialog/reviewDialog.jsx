@@ -14,7 +14,7 @@ import { useDispatch } from 'react-redux';
 import Alert from '@mui/material/Alert';
 import './styles.css';
 
-const ReviewDialog = ({ id,name }) => {
+const ReviewDialog = ({ id,name,page }) => {
     const [open, setOpen] = React.useState(false);
     const classes = useStyles();
     const [value, setValue] = React.useState(0);
@@ -62,7 +62,7 @@ const ReviewDialog = ({ id,name }) => {
 
     return (
         <div>
-            <InputBase
+            {page === 'Product' ? <InputBase
                 variant="outlined"
                 onClick={writeReview}
                 placeholder="Add Product Review ..."
@@ -74,7 +74,7 @@ const ReviewDialog = ({ id,name }) => {
                     margin: '2% 5%',
                     width: '90%'
                 }}
-            />
+            /> : <button className={classes.orderPageButtons} onClick={writeReview}>Product Review</button> }
             <Dialog open={open} onClose={handleClose}>
                 <DialogTitle className={classes.dialogTitle} >Write Review for {name}</DialogTitle>
                 <DialogContent>

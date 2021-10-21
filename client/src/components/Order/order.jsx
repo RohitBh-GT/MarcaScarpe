@@ -6,25 +6,33 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
 import {ExpandMore} from '@material-ui/icons';
+import { useHistory } from 'react-router-dom';
+import ReviewDialog from '../ReviewDialog/reviewDialog.jsx';
 
 const Order = ({ order }) => {
     const classes = useStyles();
     const [expanded, setExpanded] = React.useState(false);
+    const history = useHistory();
 
-    console.log(order);
     const handleChange = (panel) => (event, isExpanded) => {
         setExpanded(isExpanded ? panel : false);
     };
+    
+    const viewItem = (e,product) => {
+        e.preventDefault();
+        console.log(e,product);
+        history.push(`/product?productId=${e._id}&productName=${e.productName}`)
+    }
 
     return (
         <div className={classes.orderBox}>
             <div className={classes.orderTop}>
                 <div className={classes.orderTopOptions}>
-                    <div className={classes.orderTopOptionPoint}><div>Shipped To</div><div>#123,Chandigarh</div></div>
-                    <div className={classes.orderTopOptionPoint}><div>Total Price</div><div>{order.totalPrice}</div></div>
+                    <div className={classes.orderTopOptionPoint}><div className={classes.upperHead}>Shipped To:</div><div className={classes.lowerHead}>#123,Chandigarh</div></div>
+                    <div className={classes.orderTopOptionPoint}><div className={classes.upperHead}>Total Price:</div><div className={classes.lowerHead}>{order.totalPrice}.00</div></div>
                 </div>
                 <div>
-                    <strong>To:- </strong> Mr. {getToken().result.userName}
+                  To:- <strong style={{fontSize:'18px'}}>Mr. {getToken().result.userName} </strong>
                 </div>
             </div>
             <div className={classes.products}>
@@ -42,14 +50,22 @@ const Order = ({ order }) => {
                     &nbsp;Rs {(product.productDiscountPrice.slice(1).replace(/,/g, '')*product.quantity).toFixed(2)} </Typography>
                   </AccordionSummary>
                   <AccordionDetails>
-                      <div style={{display:'flex',justifyContent:'space-around',alignItems:'center'}}>
-                          <div>
-                              <img src={product.productImage} alt={product.productName} width="20%" height="20%" />
+                      <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',flex:'1'}}>
+                          <div style={{width:'25%',marginRight:'2%'}}>
+                              <img src={product.productImage} alt={product.productName} />
                           </div>
-                          <div>
-                              <div>Brand: {product.productBrand} For {product.forGender}</div>
-                              <div>Color: {product.productColor}</div>
-                              <div>Size: {product.size}</div>
+                          <div style={{fontSize:'1.2rem'}}>
+                              <div><strong>Brand:</strong> {product.productBrand} For {product.forGender}</div>
+                              <div><strong>Color:</strong> {product.productColor}</div>
+                              <div><strong>Size:</strong> {product.size}</div>
+                              <div><strong>Price:</strong> Rs {(product.productDiscountPrice.slice(1).replace(/,/g, '')*product.quantity).toFixed(2)}</div>
+                          </div>
+                          <div style={{display:'flex',flexDirection:'column',justifyContent:'center',alignItems:'center',flex:'1'}}>
+                              <button onClick={(e)=>{
+                                  e.preventDefault();
+                                  history.push(`/product?productId=${product._id}&productName=${product.productName}`);
+                              }} className={classes.orderPageButtons}>View Item</button>
+                              <ReviewDialog id={product._id} name={product.productName} page='Order' />
                           </div>
                       </div>
                   </AccordionDetails>

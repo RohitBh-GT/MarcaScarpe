@@ -6,7 +6,8 @@ const useStyles = makeStyles((theme) => ({
         paddingBottom:'1%',
         margin:'2% 2% 0% 2%',
         borderRadius:'12px',
-        background:'white',
+        backgroundColor:'white',
+        background:'url("https://www.transparenttextures.com/patterns/brushed-alum-dark.png")'
     },
     orderTop:{
         display:'flex',
@@ -14,13 +15,15 @@ const useStyles = makeStyles((theme) => ({
         alignItems:'center',
         backgroundColor:'#f0f0f0',
         borderRadius:'10px',
-        padding:'1%'
+        padding:'1%',
+        background:'url("https://www.transparenttextures.com/patterns/brushed-alum-dark.png")'
     },
     orderTopOptions:{
         display:'flex',
         justifyContent:'space-between',
         alignItems:'center',
-        width:'20%',
+        width:'25%',
+        textAlign:'center'
     },
     orderTopOptionPoint:{
         display:'flex',
@@ -35,7 +38,30 @@ const useStyles = makeStyles((theme) => ({
         marginRight:'2%'
     },
     accordion:{
-        backgroundColor:'#dad9d9 !important'
+        backgroundColor:'#dad9d9 !important',
+        background:'url("https://www.transparenttextures.com/patterns/brushed-alum-dark.png")',
+    },
+    orderPageButtons:{
+        width:'12vw',
+        borderRadius:'6px',
+        backgroundColor:'#fe6b02',
+        color:'white',
+        padding:'2%',
+        margin:'1%',
+        fontSize:'1.1rem',
+        border:'none',
+        '&:hover':{
+            cursor:'pointer',
+            backgroundColor:'#f97c22'
+        }
+    },
+    upperHead:{
+        fontSize: '16px',
+        marginBottom:'5px'
+    },
+    lowerHead:{
+        fontSize:'18px',
+        fontWeight:'700'
     }
 }));
 

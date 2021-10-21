@@ -26,7 +26,21 @@ const useStyles = makeStyles((theme) => ({
     },
     errorReview:{
         color:'#fe6b02',
-    }
+    },
+    orderPageButtons:{
+        width:'12vw',
+        borderRadius:'6px',
+        backgroundColor:'#fe6b02',
+        color:'white',
+        padding:'8%',
+        margin:'1%',
+        fontSize:'1.1rem',
+        border:'none',
+        '&:hover':{
+            cursor:'pointer',
+            backgroundColor:'#f97c22'
+        }
+    },
 }));
 
 export default useStyles;
