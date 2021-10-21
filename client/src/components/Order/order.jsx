@@ -47,7 +47,7 @@ const Order = ({ order }) => {
                       {product.productName}
                     </Typography>
                     <Typography sx={{ color: 'text.secondary' }}> x {product.quantity} =  
-                    &nbsp;Rs {(product.productDiscountPrice.slice(1).replace(/,/g, '')*product.quantity).toFixed(2)} </Typography>
+                    &nbsp;<strong>Rs {(product.productDiscountPrice.slice(1).replace(/,/g, '')*product.quantity).toFixed(2)}</strong> </Typography>
                   </AccordionSummary>
                   <AccordionDetails>
                       <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',flex:'1'}}>

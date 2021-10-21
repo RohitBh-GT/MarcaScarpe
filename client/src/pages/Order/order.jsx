@@ -25,6 +25,7 @@ const Orders = () => {
             <Navbar />
             <div className='orders'>
                 {prof.length > 0 && prof[0].orders.length>0? <div>
+                    <div style={{margin:'2% 2% 0% 2%',color:'#fe6b02',fontSize:'1.5rem',fontWeight:'bold'}}>My Orders</div>
                     {prof[0].orders.slice(0).reverse().map((order) => (
                         <>
                             <Order order={order} />

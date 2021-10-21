@@ -6,7 +6,7 @@ const auth = (users={authData:null},action) => {
       case 'signin':  
         localStorage.setItem("user",JSON.stringify({...action?.payload})) 
         return {...users,authData:action?.payload}; 
-      case 'logout':
+      case 'LOGOUT':
           localStorage.clear();
           return {...users,authData:null};  
       default:

@@ -1,0 +1,39 @@
+.accountPage{
+    background:url("https://www.transparenttextures.com/patterns/dark-wood.png");
+    background-color: #272c48;
+    min-height:100vh;
+}
+
+.account{
+    display:flex;
+    align-items: center;
+    width:100%;
+}
+
+.accountBox{
+    width:70%;
+}
+
+.accountButtons{
+    width:30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.fourButtons{
+    margin:2%;
+    padding:2%;
+    border-radius:6px;
+    background-color:#fe6b02;
+    text-align: center;
+    font-weight: bold;
+    color:white;
+    width:20vw;
+    font-size:1.1rem;
+}
+
+.fourButtons:hover{
+    cursor:pointer;
+    background-color: #f97c22;
+}

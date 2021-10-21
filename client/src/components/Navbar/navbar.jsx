@@ -46,7 +46,7 @@ const Navbar = () => {
             <div className={classes.rightNav}>
                 <div className={classes.option}>
                     <span className={classes.upper}>Your</span>
-                    <Link className={classes.down} href="#"><span>Account</span></Link>
+                    <Link className={classes.down} href="/your-account"><span>Account</span></Link>
                 </div>
                 <div className={classes.option}>
                     <span className={classes.upper}>Your</span>
