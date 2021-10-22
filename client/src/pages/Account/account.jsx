@@ -13,6 +13,7 @@ const Account = () => {
     const history = useHistory();
 
     useEffect(()=> {
+        console.log(myProfile);
         setProf(myProfile);
     },[myProfile]);
 

@@ -49,8 +49,18 @@ export const resetPass = (user,history) => async(dispatch) => {
         const {data} = await api.resetPassword(userChanged);
         setTimeout(()=> {
             history.push('/auth/signIn');
-        },[5000]);
+        },[4000]);
         return (data.message);
+    } catch (error) {
+        return (error.response.data.message);
+    }
+}
+
+export const updateProfile = (email,form) => async(dispatch) => {
+    try {
+        const { data } = await api.updateAccount(email,form);
+        dispatch({type:'UPDATE_ACCOUNT',payload:data.updatedAuth});
+        dispatch({type:'UPDATE_PROFILE',payload:data});
     } catch (error) {
         return (error.response.data.message);
     }

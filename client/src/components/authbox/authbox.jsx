@@ -86,6 +86,7 @@ const AuthBox = ({ type,setToken }) => {
       setError('*Phone no. should have 10 digits only.');
       return 1;
     }
+    
     if(!re.test(formData.emailId)){
       setError('*Email Id must contain @ and .com at end');
       return 1;
