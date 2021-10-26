@@ -2,11 +2,13 @@ import React,{ useState,useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { addOrders } from '../../actions/profile.js';
 import { getToken,getCartProducts } from '../../utils/common.js';
+import { useHistory } from 'react-router-dom';
 import './styles.css';
 
 const Bill = ({cartBox,setCartBox}) => {
     const [totalPrice,setTotalPrice] = useState(0);
     const dispatch = useDispatch();
+    const history = useHistory();
 
     useEffect(()=> {
         var total = 0;
@@ -19,7 +21,8 @@ const Bill = ({cartBox,setCartBox}) => {
 
     const placeOrder = (e) => {
         e.preventDefault();
-        dispatch(addOrders({email:getToken().result.emailId,order:{products:getCartProducts(),totalPrice:`Rs ${totalPrice}`}}));
+        history.push('/placing-order');
+        // dispatch(addOrders({email:getToken().result.emailId,order:{products:getCartProducts(),totalPrice:`Rs ${totalPrice}`}}));
     }
 
     return (

@@ -1,0 +1,45 @@
+.placeOrderPage{
+    background:url("https://www.transparenttextures.com/patterns/dark-wood.png");
+    background-color: #272c48;
+    min-height:100vh;
+}
+
+.stepbox{
+    background-color: transparent !important;
+}
+
+.MuiStepLabel-label{
+    color:#d8752f !important;
+}
+
+.MuiStepLabel-label.MuiStepLabel-active{
+    color:#fe6b02 !important;
+}
+
+.MuiStepIcon-root{
+    color: #d8752f !important;
+}
+
+.MuiStepIcon-root.MuiStepIcon-active{
+    color:#fe6b02 !important;
+}
+
+.addressInput{
+      padding:6px;
+      color:#fe6b02 !important;
+      border:1px solid #fe6b02;
+      border-radius:10px;
+      width: 50%;
+}
+
+.submitAddress{
+      background-color:#dc6007 !important;
+      color:white !important;
+      font-weight:700 !important;
+      width: 50% !important;
+      margin-top: 3% !important;
+}
+
+.submitAddress:hover{
+    background-color: #fe6b02 !important;
+}

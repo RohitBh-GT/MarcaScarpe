@@ -37,7 +37,7 @@ const Navbar = () => {
     return (
         <div className={classes.container}>
             <div className={classes.logoContainer}>
-                <Link href="/"><img className={classes.logo} src={Logo} alt="Marca Scarpe" /></Link>
+                <Link href="/"><img className={classes.logo} src={Logo} width="100%" height="100%" alt="Marca Scarpe" /></Link>
             </div>
             <div className={classes.search}>
                 <input className={classes.search_input} placeholder="Search any Item" type="text" />

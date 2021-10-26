@@ -15,6 +15,17 @@ const useStyles = makeStyles((theme)=> ({
     subAccountInfo:{
         marginBottom:'2%',
         fontSize:'1.2rem',
+    },
+    saveButton:{
+        fontSize:'1.1rem',
+        color:'white',
+        backgroundColor:'green',
+        borderRadius:'6px',
+        padding:'3px',
+        '&:hover':{
+            cursor:'pointer',
+            backgroundColor:'#19ba19'
+        }
     }
 }));
 

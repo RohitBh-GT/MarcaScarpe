@@ -88,7 +88,7 @@ const AccountBox = ({profile,edit,setEdit}) => {
                 profile.address}</div>
                 <div className={classes.subAccountInfo}><strong>Joined Marca Scarpe on:</strong> {profile.timeStamp}</div>
                 <div className={classes.subAccountInfo}><strong>Orders Done:</strong> {profile.orders.length}</div>
-                {editMode && <button onClick={saveProfile}>Save Profile</button>}
+                {editMode && <button className={classes.saveButton} onClick={saveProfile}>Save Profile</button>}
             </div>
         </div>
     );

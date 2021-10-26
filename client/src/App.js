@@ -8,6 +8,7 @@ import Product from './pages/Product/products.jsx';
 import Brand from './pages/Brand/brand.jsx';
 import WishList from './pages/Wishlist/wishlist.jsx';
 import Orders from './pages/Order/order.jsx';
+import PlaceOrder from './pages/PlaceOrder/placeOrder.jsx';
 import Account from './pages/Account/account.jsx';
 import { useDispatch } from 'react-redux';
 import { getAllShoes } from './actions/shoes.js';
@@ -42,6 +43,7 @@ const App = () =>{
              <Route path="/your-wishlist" component={WishList} />
              <Route path="/your-orders" component={Orders} />
              <Route path="/your-account" component={Account} />
+             <Route path="/placing-order" component={PlaceOrder} />
              <Route path="/" component={Home} />
          </Switch>
         </>

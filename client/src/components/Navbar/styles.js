@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
         margin: '0px 20px'
     },
     logo: {
-        cursor: 'pointer'
+        cursor: 'pointer',
     },
     search: {
         display: 'flex',

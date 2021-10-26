@@ -52,7 +52,7 @@ const Order = ({ order }) => {
                   <AccordionDetails>
                       <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',flex:'1'}}>
                           <div style={{width:'25%',marginRight:'2%'}}>
-                              <img src={product.productImage} alt={product.productName} />
+                              <img src={product.productImage} width="50%" height="50%" alt={product.productName} />
                           </div>
                           <div style={{fontSize:'1.2rem'}}>
                               <div><strong>Brand:</strong> {product.productBrand} For {product.forGender}</div>
