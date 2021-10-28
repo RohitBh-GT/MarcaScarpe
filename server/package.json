@@ -19,6 +19,7 @@
     "mongoose": "^6.0.5",
     "nodemailer": "^6.6.3",
     "nodemon": "^2.0.12",
-    "sendmail": "^1.6.1"
+    "sendmail": "^1.6.1",
+    "stripe": "^8.184.0"
   }
 }

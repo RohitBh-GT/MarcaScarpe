@@ -1,4 +1,10 @@
 import Profile from '../models/Profile.js';
+import dotenv from 'dotenv';
+dotenv.config();
+
+import Stripe from "stripe";
+
+const stripe = new Stripe(process.env.STRIPE_SECRET);
 
 export const getProfile = async(req,res) => {
     const {email} = req.params;
@@ -51,5 +57,22 @@ export const addOrders = async(req,res) => {
         return res.status(200).json(orderData);
     } catch (error) {
         return res.status(404).json({message:'Cant add any order'});
+    }
+}
+
+export const placeOrder = async(req,res) => {
+    const { amount,id } = req.body;
+    console.log(amount,id);
+    try {
+        const payment = await stripe.paymentIntents.create({
+            amount,
+			currency: "INR",
+			description: "Marca Scarpe",
+			payment_method: id,
+			confirm: true
+        });
+        res.status(200).json({message:'Payment Done Successfully'});
+    } catch (error) {
+        res.status(404).json({message:'Payment Unsuccessful'});
     }
 }

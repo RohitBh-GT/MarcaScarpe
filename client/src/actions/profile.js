@@ -7,7 +7,7 @@ export const getProfile = (token) => async(dispatch) => {
         console.log(data);
         dispatch({type:'GET_PROFILE',payload:data});
     } catch (error) {
-        return (error.response.data.message);
+        return (error);
     }
 }
 
@@ -33,6 +33,15 @@ export const addOrders = (obj) => async(dispatch) => {
     try {
         const {data} = await api.addOrders(obj.email,obj.order);
         dispatch({type:'ADD_ORDERS',payload:data});
+    } catch (error) {
+        return (error.response.data.message);
+    }
+}
+
+export const placeOrder = (obj) => async(dispatch) => {
+    try {
+        const {data} = await api.placeOrder(obj);
+        return data.message;
     } catch (error) {
         return (error.response.data.message);
     }

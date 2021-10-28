@@ -18,3 +18,4 @@ export const addWishlistItem = (email,wishListData) => axios.put(`${url}/profile
 export const removeWishlistItem = (email,wishListData) => axios.put(`${url}/profile/api/v1/removeWishlistItem/${email}`,wishListData);
 
 export const addOrders = (email,data) => axios.put(`${url}/profile/api/v1/addOrders/${email}`,data);
+export const placeOrder = (data) => axios.post(`${url}/profile/api/v1/placeOrders`,data);

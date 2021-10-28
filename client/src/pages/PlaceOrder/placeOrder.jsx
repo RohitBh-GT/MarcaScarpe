@@ -6,6 +6,9 @@ import Navbar from '../../components/Navbar/navbar';
 import ConfirmOrder from '../../components/confirmOrder/confirmOrder.jsx';
 import './styles.css';
 import { useSelector } from 'react-redux';
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
+import PaymentForm from '../../components/PaymentForm/paymentForm';
 
 const steps = [
     'Select your Address',
@@ -14,6 +17,8 @@ const steps = [
 ];
 
 const PlaceOrder = () => {
+    const PUBLIC_KEY = 'pk_test_51Jnye5SJqfr4g0SyhCDntFWzZsxnXeW6NGEtTB5pf7ShlhSxkxr4rjkImaQwMqbGoDamv6ac8exrdIFhGjckIEJT00bFLbzzvY';
+    const stripePromise = loadStripe(PUBLIC_KEY);
     const history = useHistory();
     const [activeStep, setActiveStep] = useState(0);
     const [address, setAddress] = useState('');
@@ -76,6 +81,11 @@ const PlaceOrder = () => {
             </div>}
             {activeStep === 1 && <div style={{ display: 'flex',flexDirection:'column', justifyContent: 'center', alignItems: 'center', marginTop: '2%' }}>
                 <ConfirmOrder activeStep={activeStep} setActiveStep={setActiveStep} />
+            </div>}
+            {activeStep === 2 && <div>
+                <Elements stripe={stripePromise}>
+                    <PaymentForm />
+                </Elements>
             </div>}
         </div>
     );
