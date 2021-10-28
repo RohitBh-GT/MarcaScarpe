@@ -22,7 +22,6 @@ const Bill = ({cartBox,setCartBox}) => {
     const placeOrder = (e) => {
         e.preventDefault();
         history.push('/placing-order');
-        // dispatch(addOrders({email:getToken().result.emailId,order:{products:getCartProducts(),totalPrice:`Rs ${totalPrice}`}}));
     }
 
     return (

@@ -16,12 +16,14 @@ const steps = [
     'Pay Money',
 ];
 
+const PUBLIC_KEY = 'pk_test_51Jnye5SJqfr4g0SyhCDntFWzZsxnXeW6NGEtTB5pf7ShlhSxkxr4rjkImaQwMqbGoDamv6ac8exrdIFhGjckIEJT00bFLbzzvY';
+const stripePromise = loadStripe(PUBLIC_KEY);
+
 const PlaceOrder = () => {
-    const PUBLIC_KEY = 'pk_test_51Jnye5SJqfr4g0SyhCDntFWzZsxnXeW6NGEtTB5pf7ShlhSxkxr4rjkImaQwMqbGoDamv6ac8exrdIFhGjckIEJT00bFLbzzvY';
-    const stripePromise = loadStripe(PUBLIC_KEY);
     const history = useHistory();
     const [activeStep, setActiveStep] = useState(0);
     const [address, setAddress] = useState('');
+    const [paymentError,setPaymentError] = useState(false);
 
     const myProfile = useSelector((state) => state.profile);
 
@@ -84,9 +86,13 @@ const PlaceOrder = () => {
             </div>}
             {activeStep === 2 && <div>
                 <Elements stripe={stripePromise}>
-                    <PaymentForm />
+                    <PaymentForm activeStep={activeStep} setActiveStep={setActiveStep} setPaymentError={setPaymentError} address={address} />
                 </Elements>
             </div>}
+            {activeStep === 3 && <div>
+                paymentError? <h2>Transaction Failed, Payment Unsuccessful</h2> : 
+                <h2>Payment was Done successfully.Thank for giving order. You can check order log now.</h2>
+             </div>}
         </div>
     );
 }

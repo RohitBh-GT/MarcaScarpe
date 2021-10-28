@@ -28,8 +28,9 @@ const Order = ({ order }) => {
         <div className={classes.orderBox}>
             <div className={classes.orderTop}>
                 <div className={classes.orderTopOptions}>
-                    <div className={classes.orderTopOptionPoint}><div className={classes.upperHead}>Shipped To:</div><div className={classes.lowerHead}>#123,Chandigarh</div></div>
+                    <div className={classes.orderTopOptionPoint}><div className={classes.upperHead}>Shipped To:</div><div className={classes.lowerHead}>{order.address}</div></div>
                     <div className={classes.orderTopOptionPoint}><div className={classes.upperHead}>Total Price:</div><div className={classes.lowerHead}>{order.totalPrice}.00</div></div>
+                    <div className={classes.orderTopOptionPoint}><div className={classes.upperHead}>Ordered on:</div><div className={classes.lowerHead}>{order.dateOfOrder}</div></div>
                 </div>
                 <div>
                   To:- <strong style={{fontSize:'18px'}}>Mr. {getToken().result.userName} </strong>

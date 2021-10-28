@@ -37,7 +37,9 @@ const profileSchema = new mongoose.Schema({
             quantity: Number,
             size: String
         }],
-        totalPrice: String
+        totalPrice: String,
+        address:String,
+        dateOfOrder:String
     }]
 });
 

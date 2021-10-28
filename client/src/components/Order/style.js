@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
         display:'flex',
         justifyContent:'space-between',
         alignItems:'center',
-        width:'25%',
+        width:'40%',
         textAlign:'center'
     },
     orderTopOptionPoint:{
