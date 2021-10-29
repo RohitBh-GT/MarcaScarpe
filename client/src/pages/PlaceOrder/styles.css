@@ -43,3 +43,22 @@
 .submitAddress:hover{
     background-color: #fe6b02 !important;
 }
+
+.errorLine{
+    color:#fe6b02;
+}
+
+.shoppingButton{
+    margin:2%;
+    padding:2%;
+    border-radius:10px;
+    background-color:#fe6b02;
+    border:none;
+    color:white;
+    font-size:1.1rem;
+}
+
+.shoppingButton:hover{
+    cursor: pointer;
+    background-color:#fe0505;
+}

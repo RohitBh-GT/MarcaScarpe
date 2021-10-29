@@ -9,6 +9,8 @@ import { useSelector } from 'react-redux';
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import PaymentForm from '../../components/PaymentForm/paymentForm';
+import Successful from '../../assets/images/successfull.png';
+import Failed from '../../assets/images/failed.png';
 
 const steps = [
     'Select your Address',
@@ -16,7 +18,7 @@ const steps = [
     'Pay Money',
 ];
 
-const PUBLIC_KEY = 'pk_test_51Jnye5SJqfr4g0SyhCDntFWzZsxnXeW6NGEtTB5pf7ShlhSxkxr4rjkImaQwMqbGoDamv6ac8exrdIFhGjckIEJT00bFLbzzvY';
+const PUBLIC_KEY = process.env.REACT_APP_PUBLISHABLE_KEY;
 const stripePromise = loadStripe(PUBLIC_KEY);
 
 const PlaceOrder = () => {
@@ -45,6 +47,11 @@ const PlaceOrder = () => {
     const confirmAddress = (e) => {
         e.preventDefault();
         setActiveStep(activeStep+1);
+    }
+
+    const startShopping = (e) => {
+        e.preventDefault();
+        history.push('/');
     }
 
     return (
@@ -84,14 +91,17 @@ const PlaceOrder = () => {
             {activeStep === 1 && <div style={{ display: 'flex',flexDirection:'column', justifyContent: 'center', alignItems: 'center', marginTop: '2%' }}>
                 <ConfirmOrder activeStep={activeStep} setActiveStep={setActiveStep} />
             </div>}
-            {activeStep === 2 && <div>
+            {activeStep === 2 && <div style={{ display: 'flex',flexDirection:'column', justifyContent: 'center', alignItems: 'center', marginTop: '2%' }}>
                 <Elements stripe={stripePromise}>
                     <PaymentForm activeStep={activeStep} setActiveStep={setActiveStep} setPaymentError={setPaymentError} address={address} />
                 </Elements>
             </div>}
-            {activeStep === 3 && <div>
-                paymentError? <h2>Transaction Failed, Payment Unsuccessful</h2> : 
-                <h2>Payment was Done successfully.Thank for giving order. You can check order log now.</h2>
+            {activeStep === 3 && <div style={{ display: 'flex',flexDirection:'column', justifyContent: 'center', alignItems: 'center', marginTop: '2%' }}>
+                {paymentError? <><img src={Failed} /><h2 className='errorLine'>Transaction Failed, Payment Unsuccessful</h2>
+                <button onClick={startShopping} className='shoppingButton'>Continue Shopping</button>
+                </> : 
+                <><img src={Successful} /><h2 className='errorLine'>Payment was Done successfully.Thank for giving order. You can check order log now.</h2>
+                <button onClick={startShopping} className='shoppingButton'>Continue Shopping</button></>}
              </div>}
         </div>
     );

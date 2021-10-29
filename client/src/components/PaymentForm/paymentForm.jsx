@@ -35,6 +35,7 @@ const PaymentForm = ({activeStep,setActiveStep,setPaymentError,address}) => {
 
     const [totalPrice, setTotalPrice] = useState(0);
     const [cartBox,setCartBox] = useState(getCartProducts());
+    const [error,setError] = useState('');
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -64,22 +65,24 @@ const PaymentForm = ({activeStep,setActiveStep,setPaymentError,address}) => {
             .catch((err)=> {setPaymentError(true); setLoading(false)});
         }
         else{
+            setError(error.message);
             setLoading(false);
         }
     }
 
     return (
-        <>
+        <div className='paymentdiv'>
         {!success ? <form>
             <fieldset>
                 <div>
                     <CardElement options={CARD_OPTIONS} />
                 </div>
             </fieldset>
-            <button onClick={handlePayment}>Pay Money</button>
+            {error!=='' && <span style={{color:'#fe6b02'}}>{error}</span>}
+            <button className='payButton' onClick={handlePayment}>Pay Money</button>
         </form> : <h1>Payment Done</h1>}
         {loading && <CircularProgress className='spinner' />}
-        </>
+        </div>
     );
 }
 

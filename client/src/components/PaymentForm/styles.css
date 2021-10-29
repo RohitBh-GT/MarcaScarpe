@@ -2,5 +2,24 @@
     position:absolute;
     left:48%;
     top:45%;
-    color:#fe6b02;
+    color:#fe6b02 !important;
+}
+
+.paymentdiv{
+    width:50%;
+}
+
+.payButton{
+    margin-top: 2%;
+    padding:2%;
+    color:white;
+    background-color: #fe6b02;
+    border-radius: 10px;
+    font-weight: 600;
+    width: 100%;
+}
+
+.payButton:hover{
+    cursor:pointer;
+    background-color: #d65f0a;
 }

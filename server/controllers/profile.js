@@ -1,4 +1,5 @@
 import Profile from '../models/Profile.js';
+import Shoes from '../models/shoes.js';
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -53,6 +54,12 @@ export const addOrders = async(req,res) => {
         const existingProfile = await Profile.findOne({emailId:email});
         if(!existingProfile) return res.status(404).json({message:'This profile doesn\'t exists.'});
 
+        for(var i=0;i<orderData.products.length;i++){
+            const existingShoe = await Shoes.findOne({productName:orderData.products[i].productName});
+            if(existingShoe){
+                await Shoes.findOneAndUpdate({productName:orderData.products[i].productName},{stock:existingShoe.stock-orderData.products[i].quantity},{new:true});
+            }
+        }
         await Profile.findByIdAndUpdate(existingProfile._id,{$push:{orders:orderData}});
         return res.status(200).json(orderData);
     } catch (error) {
@@ -62,7 +69,6 @@ export const addOrders = async(req,res) => {
 
 export const placeOrder = async(req,res) => {
     const { amount,id } = req.body;
-    console.log(amount,id);
     try {
         const payment = await stripe.paymentIntents.create({
             amount,
