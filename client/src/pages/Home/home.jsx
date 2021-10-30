@@ -9,6 +9,7 @@ import topbrands from '../../utils/constants/brands.js';
 import DealsDay from '../../components/DealsDay/dealsday.jsx';
 import GenderFootwear from '../../components/GenderFootwear/genderFootwear.jsx';
 import { useSelector,useDispatch } from 'react-redux';
+import Footer from '../../components/Footer/footer.jsx';
 import './home.css';
 
 const Home = () => {
@@ -32,7 +33,7 @@ const Home = () => {
 
     useEffect(()=> {
         const today = new Date().getDate();
-        var ratio = Math.floor(today/3);
+        var ratio = Math.floor(today/5);
         setDeals(allShoes.filter((shoes,index) => index%ratio === 0 ))
         setMen(allShoes.filter((shoes)=> shoes.forGender === 'Men'));
         setWomen(allShoes.filter((shoes)=> shoes.forGender === 'Women'));
@@ -51,6 +52,7 @@ const Home = () => {
             <GenderFootwear gender="Kids" shoes={kids}/>
             </>
             }
+            <Footer />
         </div>
     )
 }

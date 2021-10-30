@@ -41,7 +41,7 @@ const Navbar = () => {
             </div>
             <div className={classes.search}>
                 <input className={classes.search_input} placeholder="Search any Item" type="text" />
-                <Search className={classes.search_logo} />
+                <Search className={classes.search_logo_navbar} />
             </div>
             <div className={classes.rightNav}>
                 <div className={classes.option}>

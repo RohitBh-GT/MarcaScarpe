@@ -12,6 +12,7 @@ import { useHistory } from 'react-router-dom';
 import { addToCart, getToken } from '../../utils/common.js';
 import { updateWishList } from '../../actions/profile.js';
 import ReviewDialog from '../../components/ReviewDialog/reviewDialog.jsx';
+import Footer from '../../components/Footer/footer.jsx';
 
 const Product = () => {
     const history = useHistory();
@@ -238,6 +239,7 @@ const Product = () => {
             {stockAlert && <Alert className='success' severity="error">Item is out of Stock.</Alert>}
             {wishlistAlert && <Alert className='alert' severity="error">Product Already added to wishlist.</Alert>}
             {successAddWish && <Alert className='success' severity="success">Item successsfully added to wishlist.</Alert>}
+            <Footer />
         </div>
     )
 }

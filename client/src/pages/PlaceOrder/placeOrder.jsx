@@ -10,6 +10,7 @@ import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import PaymentForm from '../../components/PaymentForm/paymentForm';
 import Successful from '../../assets/images/successfull.png';
+import Footer from '../../components/Footer/footer.jsx';
 import Failed from '../../assets/images/failed.png';
 
 const steps = [
@@ -68,7 +69,7 @@ const PlaceOrder = () => {
                     </Stepper>
                 </Box>
             </div>
-            {activeStep === 0 && <div style={{ display: 'flex',flexDirection:'column', justifyContent: 'center', alignItems: 'center', marginTop: '2%' }}>
+            {activeStep === 0 && <div style={{ display: 'flex',flexDirection:'column', justifyContent: 'center', alignItems: 'center', marginTop: '2%',marginBottom:'8%' }}>
                 <InputBase
                     className='addressInput'
                     name="address"
@@ -88,21 +89,22 @@ const PlaceOrder = () => {
                     Confirm Address
                 </Button>
             </div>}
-            {activeStep === 1 && <div style={{ display: 'flex',flexDirection:'column', justifyContent: 'center', alignItems: 'center', marginTop: '2%' }}>
+            {activeStep === 1 && <div style={{ display: 'flex',flexDirection:'column', justifyContent: 'center', alignItems: 'center', marginTop: '2%',marginBottom:'8%' }}>
                 <ConfirmOrder activeStep={activeStep} setActiveStep={setActiveStep} />
             </div>}
-            {activeStep === 2 && <div style={{ display: 'flex',flexDirection:'column', justifyContent: 'center', alignItems: 'center', marginTop: '2%' }}>
+            {activeStep === 2 && <div style={{ display: 'flex',flexDirection:'column', justifyContent: 'center', alignItems: 'center', marginTop: '2%',marginBottom:'8%' }}>
                 <Elements stripe={stripePromise}>
                     <PaymentForm activeStep={activeStep} setActiveStep={setActiveStep} setPaymentError={setPaymentError} address={address} />
                 </Elements>
             </div>}
-            {activeStep === 3 && <div style={{ display: 'flex',flexDirection:'column', justifyContent: 'center', alignItems: 'center', marginTop: '2%' }}>
+            {activeStep === 3 && <div style={{ display: 'flex',flexDirection:'column', justifyContent: 'center', alignItems: 'center', marginTop: '2%',marginBottom:'8%' }}>
                 {paymentError? <><img src={Failed} /><h2 className='errorLine'>Transaction Failed, Payment Unsuccessful</h2>
                 <button onClick={startShopping} className='shoppingButton'>Continue Shopping</button>
                 </> : 
                 <><img src={Successful} /><h2 className='errorLine'>Payment was Done successfully.Thank for giving order. You can check order log now.</h2>
                 <button onClick={startShopping} className='shoppingButton'>Continue Shopping</button></>}
              </div>}
+             <Footer />
         </div>
     );
 }

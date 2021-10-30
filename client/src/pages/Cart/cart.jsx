@@ -5,6 +5,7 @@ import { getToken,getCartProducts } from '../../utils/common.js';
 import { useHistory } from 'react-router-dom';
 import Bill from '../../components/Bill/bill.jsx';
 import './styles.css';
+import Footer from '../../components/Footer/footer.jsx';
 
 const Cart = () => {
     const history = useHistory();
@@ -24,6 +25,7 @@ const Cart = () => {
                 <Bill cartBox={cartBox} setCartBox={setCartBox} />
             </div>
         </div>
+        <Footer />
         </div>
     )
 }

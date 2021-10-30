@@ -4,6 +4,7 @@ import { useSelector,useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import AccountBox from '../../components/account/accountBox.jsx';
 import './styles.css';
+import Footer from '../../components/Footer/footer.jsx';
 
 const Account = () => {
     const myProfile = useSelector((state) => state.profile);
@@ -41,6 +42,7 @@ const Account = () => {
                     <button onClick={logOut} className='fourButtons'>Log Out</button>
                 </div>
             </div>}
+            <Footer />
         </div>
     )
 }

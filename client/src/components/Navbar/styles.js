@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
         outline: 'none',
         width: '100%'
     },
-    search_logo: {
+    search_logo_navbar: {
         marginTop: '0.5px',
         padding: '6px',
         backgroundColor: '#fe6b02',

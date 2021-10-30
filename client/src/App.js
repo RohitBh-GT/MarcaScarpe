@@ -12,6 +12,7 @@ import PlaceOrder from './pages/PlaceOrder/placeOrder.jsx';
 import Account from './pages/Account/account.jsx';
 import { useDispatch } from 'react-redux';
 import { getAllShoes } from './actions/shoes.js';
+import { useLocation } from 'react-router-dom';
 import { getProfile } from './actions/profile.js';
 import { getToken } from './utils/common.js';
 import Cart from './pages/Cart/cart.jsx';

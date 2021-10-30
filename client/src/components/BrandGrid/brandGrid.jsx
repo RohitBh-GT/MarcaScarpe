@@ -6,7 +6,7 @@ import useStyles from './styles.js';
 const BrandGrid = ({brands}) => {
     const classes = useStyles();
     return (
-        <Grid container>
+        <Grid container className={classes.brandGrid}>
             {brands.map((brand) => (
                 <Grid className={classes.singleItem} item xs={6} sm={6} md={4} lg={3}>
                     <SingleBrandItem key={brand.productName} productId={brand._id} imgSrc={brand.productImage} name={brand.productName} 

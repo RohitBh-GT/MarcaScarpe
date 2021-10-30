@@ -4,6 +4,9 @@ const useStyles = makeStyles((theme)=> ({
     singleItem:{
         marginTop:'2%',
         zIndex:'1'
+    },
+    brandGrid:{
+        marginBottom:'4%'
     }
 }));
 

@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import Order from '../../components/Order/order.jsx';
 import EmptyOrder from '../../assets/images/EmptyOrder.png';
 import { useHistory } from 'react-router-dom';
+import Footer from '../../components/Footer/footer.jsx';
 import './styles.css';
 
 const Orders = () => {
@@ -24,7 +25,7 @@ const Orders = () => {
         <div className='orderPage'>
             <Navbar />
             <div className='orders'>
-                {prof.length > 0 && prof[0].orders.length>0? <div>
+                {prof.length > 0 && prof[0].orders.length>0? <div className='orderDiv'>
                     <div style={{margin:'2% 2% 0% 2%',color:'#fe6b02',fontSize:'1.5rem',fontWeight:'bold'}}>My Orders</div>
                     {prof[0].orders.slice(0).reverse().map((order) => (
                         <>
@@ -37,6 +38,7 @@ const Orders = () => {
                     <button onClick={startShopping} className='shoppingButton'>Start Shopping</button>
                 </div>}
             </div>
+            <Footer />
         </div>
     )
 }

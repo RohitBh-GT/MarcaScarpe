@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import Navbar from '../../components/Navbar/navbar.jsx';
 import brands from '../../utils/constants/brands.js';
 import BrandGrid from '../../components/BrandGrid/brandGrid.jsx';
+import Footer from '../../components/Footer/footer.jsx';
 import './styles.css';
 
 const Brand = () => {
@@ -27,6 +28,7 @@ const Brand = () => {
                 <img src={img[0].coverImg} alt={brandName} width="100%" height="85%" />
             </div>
             <BrandGrid brands={sameBrands} />
+            <Footer />
         </div>
     );
 }
