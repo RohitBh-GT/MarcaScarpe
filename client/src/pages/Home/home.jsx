@@ -33,7 +33,7 @@ const Home = () => {
 
     useEffect(()=> {
         const today = new Date().getDate();
-        var ratio = Math.floor(today/5);
+        var ratio = Math.floor(today%5);
         setDeals(allShoes.filter((shoes,index) => index%ratio === 0 ))
         setMen(allShoes.filter((shoes)=> shoes.forGender === 'Men'));
         setWomen(allShoes.filter((shoes)=> shoes.forGender === 'Women'));

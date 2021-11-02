@@ -12,7 +12,8 @@ import PlaceOrder from './pages/PlaceOrder/placeOrder.jsx';
 import Account from './pages/Account/account.jsx';
 import { useDispatch } from 'react-redux';
 import { getAllShoes } from './actions/shoes.js';
-import { useLocation } from 'react-router-dom';
+import Privacy from './pages/PrivacyPolicy/privacy.jsx';
+import AboutUs from './pages/About/about.jsx';
 import { getProfile } from './actions/profile.js';
 import { getToken } from './utils/common.js';
 import Cart from './pages/Cart/cart.jsx';
@@ -45,6 +46,8 @@ const App = () =>{
              <Route path="/your-orders" component={Orders} />
              <Route path="/your-account" component={Account} />
              <Route path="/placing-order" component={PlaceOrder} />
+             <Route path="/privacy-policy" component={Privacy} />
+             <Route path="/about-marca-scarpe" component={AboutUs} />
              <Route path="/" component={Home} />
          </Switch>
         </>

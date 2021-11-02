@@ -24,7 +24,7 @@ const Footer = () => {
             <Heading>Useful Links</Heading>
             <FooterLink href="/your-account">Your Account</FooterLink>
             <FooterLink href="/your-wishlist">Your Wishlist</FooterLink>
-            <FooterLink href="/about-us">About Us</FooterLink>
+            <FooterLink href="/about-marca-scarpe">About Us</FooterLink>
             <FooterLink href="/privacy-policy">Privacy Policy</FooterLink>
           </Column>
           <Column>
