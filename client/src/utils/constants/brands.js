@@ -47,12 +47,12 @@ const brands = [
         coverImg:SketcherCover
     },
     {
-        brandName:'Red Tape',
+        brandName:'RedTape',
         brandImageSrc:RedTapes,
         coverImg:RedTapesCover
     },
     {
-        brandName:'Hush Puppies',
+        brandName:'HushPuppies',
         brandImageSrc:HushPuppies,
         coverImg:HushPuppiesCover
     }
