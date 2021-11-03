@@ -12,7 +12,7 @@ const AboutUs = () => {
                 <div>
                     <h3>About Marca Scarpe</h3>
                     Marca Scarpe is the best website to buy all the branded shoes at best prices available.It includes 
-                    8 brands of shoes for all types of Genders and user can buy them at best prices.Website is user friendly.
+                    7 brands of shoes for all types of Genders and user can buy them at best prices.Website is user friendly.
 
                     <h3>Technologies Used</h3>
                     <p>Our core aim has always been to provide amazing User Interface and experience. Top deals are changed everyday. 
