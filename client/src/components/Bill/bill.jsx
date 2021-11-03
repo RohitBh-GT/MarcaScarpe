@@ -14,7 +14,6 @@ const Bill = ({cartBox,setCartBox}) => {
         var total = 0;
         for(var i=0;i<cartBox.length;i++){
             total=Number(total) + Number((cartBox[i].productDiscountPrice.slice(1).replace(/,/g, '')*cartBox[i].quantity).toFixed(2));
-            console.log(total);
         }
         setTotalPrice(total);
     },[cartBox]);

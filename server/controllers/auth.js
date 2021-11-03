@@ -147,7 +147,7 @@ export const updatePhoneAndAddress = async(req,res) => {
     const {email} = req.params;
     try {
         const existingPhone = await Auth.findOne({phone});
-        if(existingPhone) return res.status(401).json({message:'Phone No. entered already exists'});
+        if(existingPhone && existingPhone.phone !== phone) return res.status(401).json({message:'Phone No. entered already exists'});
 
         const existingId = await Auth.findOne({emailId:email});
         if(!existingId) return res.status(404).json({message:'Email Id doesn\'t exists.'});
@@ -155,7 +155,8 @@ export const updatePhoneAndAddress = async(req,res) => {
         const updated = await Auth.findOneAndUpdate({emailId:email},{$set:{phone:phone}},{new:true});
         const updatedAuth = {userName:`${updated.firstName}${updated.lastName}`,emailId:updated.emailId,phone:updated.phone,timeStamp:updated.timeStamp};
 
-        await Profile.findOneAndUpdate({emailId:email},{$set:{phone:phone,address:address}},{new:true});
+        await Profile.findOneAndUpdate({emailId:email},{$set:{phone:phone}},{new:true});
+        await Profile.findOneAndUpdate({emailId:email},{$set:{address:address}},{new:true});
 
         return res.status(200).json({updatedAuth,phone,address});
     } catch (error) {

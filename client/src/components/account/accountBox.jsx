@@ -56,10 +56,10 @@ const AccountBox = ({profile,edit,setEdit}) => {
             }
         }
         if(form.phone.trim() !== '' && form.address.trim() !== ''){
-            if(!ph.validate(form.phone)){
+            if(!ph.validate(form.phone) || form.phone.length > 10){
                 setPhoneError('Phone no. must contain 10 digits');
             }
-            else{
+            else {
             const res = dispatch(updateProfile(getToken().result.emailId,form));
             res.then((message)=> {setPhoneError(message); setErr(1)})
                 .catch((err)=> setPhoneError(err));

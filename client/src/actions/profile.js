@@ -1,10 +1,8 @@
 import * as api from '../api/api.js';
 
 export const getProfile = (token) => async(dispatch) => {
-    console.log(token.result.emailId);
     try {
         const {data} = await api.getMyProfile(token.result.emailId);
-        console.log(data);
         dispatch({type:'GET_PROFILE',payload:data});
     } catch (error) {
         return (error);
